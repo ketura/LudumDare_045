@@ -38,6 +38,12 @@ public class Matter : MonoBehaviour
 		Rigidbody.isKinematic = true;
 		Rigidbody.velocity = Vector3.zero;
 
+        Ship ship = GetComponent<Ship>();
+        if (ship != null)
+        {
+            ship.Active = false;
+        }
+
 		Collider.isTrigger = true;
 	}
 

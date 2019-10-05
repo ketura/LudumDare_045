@@ -7,6 +7,7 @@ public class Ship : MonoBehaviour
     public enum Team { Neutral, Player, Enemy };
 
     public Team currentTeam = Team.Neutral;
+    public bool Active = true;
 
     // Start is called before the first frame update
     void Start()

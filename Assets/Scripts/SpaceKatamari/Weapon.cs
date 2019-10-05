@@ -65,7 +65,7 @@ public class Weapon : MonoBehaviour
 
         foreach (Ship ship in ships)
         {
-            if (ship.currentTeam == myTeam || ship.currentTeam == Ship.Team.Neutral)
+            if (!ship.Active || ship.currentTeam == myTeam || ship.currentTeam == Ship.Team.Neutral)
             {
                 continue;
             }
@@ -99,6 +99,11 @@ public class Weapon : MonoBehaviour
     private void FireWeapon()
     {
         GameObject bullet = GameObject.Instantiate(bulletType, bulletSpawnPoint.transform.position, transform.rotation);
-        bullet.GetComponent<Rigidbody>().velocity = (bullet.transform.position - transform.position).normalized * 10;
+        bullet.transform.rotation = transform.rotation;
+        Bullet bulletComponent = bullet.GetComponent<Bullet>();
+        if (bulletComponent != null)
+        {
+            bulletComponent.myTeam = myShip.currentTeam;
+        }
     }
 }
