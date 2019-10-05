@@ -34,7 +34,7 @@ public class GravityWell : MonoBehaviour
 			if (matter == null)
 				continue;
 
-			if (matter.Attached)
+			if (matter.Attached || !matter.Active)
 				continue;
 
 			if (Vector3.Distance(transform.position, hit.transform.position) < Range)

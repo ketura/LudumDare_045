@@ -10,6 +10,7 @@ public class Matter : MonoBehaviour
 
 	public int Mass;
 	public bool Attached;
+    public bool Active = true;
 
 	public Rigidbody Rigidbody;
 	public Collider Collider;
@@ -38,6 +39,12 @@ public class Matter : MonoBehaviour
 		transform.SetParent(katamari.CaptureAnchor, true);
 		Rigidbody.isKinematic = true;
 		Rigidbody.velocity = Vector3.zero;
+
+        Ship ship = GetComponent<Ship>();
+        if (ship != null)
+        {
+            ship.Active = false;
+        }
 
 		Collider.isTrigger = true;
 	}

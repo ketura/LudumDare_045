@@ -39,7 +39,13 @@ public class KatamariCameraController : MonoBehaviour
 		position.x = Mathf.Lerp(Camera.transform.position.x, Player.transform.position.x, interpolation);
 		position.y = CameraY;
 
-		Camera.transform.position = Vector3.SmoothDamp(Camera.transform.position, position, ref velocity, CameraSmooth);
+		float smooth = CameraSmooth;
+		float dist = Vector3.Distance(position, Camera.transform.position);
+
+		smooth = Mathf.Lerp(0.1f, 0.3f, (1 / dist) - 1);
+
+		Debug.Log($"Smooth: {smooth}, Dist: {dist}");
+		Camera.transform.position = Vector3.SmoothDamp(Camera.transform.position, position, ref velocity, smooth);
 	}
 }
 
