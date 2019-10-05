@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(GravityWell))]
 public class PlayerKatamari : MonoBehaviour
 {
 	public Transform CaptureAnchor;
@@ -10,6 +9,8 @@ public class PlayerKatamari : MonoBehaviour
 	public Rigidbody MasterRigidbody;
 
 	public GravityWell Well;
+
+	public float ConstantTorque = 5.0f;
 
 	public float ChildGravitySize = 2.0f;
 	public float ChildGravityStrengthMultiplier = 0.05f;
@@ -24,7 +25,8 @@ public class PlayerKatamari : MonoBehaviour
 		if (MasterRigidbody == null)
 			Debug.LogError($"Forgot to set {nameof(MasterRigidbody)}!");
 
-		Well = GetComponent<GravityWell>();
+		if (Well == null)
+			Debug.LogError($"Forgot to set {nameof(Well)}!");
 
 		Well.MasterKatamari = this;
 
@@ -34,7 +36,7 @@ public class PlayerKatamari : MonoBehaviour
   // Update is called once per frame
   void Update()
   {
-
+		MasterRigidbody.AddTorque(0, ConstantTorque * Time.deltaTime, 0);
 
   }
 

@@ -7,8 +7,11 @@ public class GravityWell : MonoBehaviour
 	public PlayerKatamari MasterKatamari;
 
 	public bool Attracting = true;
+	public bool Tractoring = false;
 
 	public float GravityStrength = 1.0f;
+	public float TractorStrength = 5.0f;
+
 	public float Range = 20.0f;
 
 	// Start is called before the first frame update
@@ -38,11 +41,22 @@ public class GravityWell : MonoBehaviour
 			{
 				var vector = transform.position - matter.transform.position;
 
-				vector *= GravityStrength;
+				if(Tractoring)
+				{
+					vector *= TractorStrength;
+				}
+				else
+				{
+					vector *= GravityStrength;
+				}
+
+				vector *= Time.deltaTime;
 
 				matter.Rigidbody.AddForce(vector);
 			}
 		}
+
+		var objects = FindObjectsOfType<Matter>();
 	}
 
 	private void OnDrawGizmos()
