@@ -24,7 +24,7 @@ public class Shield : MonoBehaviour
             size += regen;
         }
         transform.localScale = new Vector3(size, size, size);
-        Collider[] hitColliders = Physics.OverlapSphere(this.transform.position, size);
+        Collider[] hitColliders = Physics.OverlapSphere(this.transform.position, size/2);
         foreach (Collider c in hitColliders)
         {
             OnBulletHit(c);
