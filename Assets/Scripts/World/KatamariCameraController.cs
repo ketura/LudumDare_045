@@ -11,7 +11,7 @@ public class KatamariCameraController : MonoBehaviour
 	public float CameraSpeed = 10.0f;
 	public float CameraSmooth = 0.28f;
 	public float CameraTetherDistance = 10.0f;
-	public float CameraOffset = 5.0f;
+	public Vector3 CameraOffset = new Vector3(0,7,-5);
 	public float CameraY = 7;
 
 	public Rigidbody Rigidbody;
@@ -34,18 +34,21 @@ public class KatamariCameraController : MonoBehaviour
   {
 		float interpolation = CameraSpeed * Time.deltaTime;
 
-		Vector3 position = Camera.transform.position;
-		position.z = Mathf.Lerp(Camera.transform.position.z, Player.transform.position.z - CameraOffset, interpolation);
-		position.x = Mathf.Lerp(Camera.transform.position.x, Player.transform.position.x, interpolation);
-		position.y = CameraY;
+		Vector3 target = Player.transform.position + CameraOffset;
 
-		float smooth = CameraSmooth;
-		float dist = Vector3.Distance(position, Camera.transform.position);
+		//Vector3 position = Camera.transform.position;
+		//position.z = Mathf.Lerp(Camera.transform.position.z, Player.transform.position.z - CameraOffset, interpolation);
+		//position.x = Mathf.Lerp(Camera.transform.position.x, Player.transform.position.x, interpolation);
+		//position.y = CameraY;
 
-		smooth = Mathf.Lerp(0.1f, 0.3f, (1 / dist) - 1);
+		//float smooth = CameraSmooth;
+		//float dist = Vector3.Distance(position, Camera.transform.position);
 
-		Debug.Log($"Smooth: {smooth}, Dist: {dist}");
-		Camera.transform.position = Vector3.SmoothDamp(Camera.transform.position, position, ref velocity, smooth);
+		//smooth = Mathf.Lerp(0.1f, 0.3f, (1 / dist) - 1);
+
+		//Camera.transform.position = Vector3.SmoothDamp(Camera.transform.position, position, ref velocity, smooth);
+
+		Camera.transform.position = target;
 	}
 }
 

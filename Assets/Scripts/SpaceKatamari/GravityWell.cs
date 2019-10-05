@@ -11,6 +11,7 @@ public class GravityWell : MonoBehaviour
 
 	public float GravityStrength = 1.0f;
 	public float TractorStrength = 5.0f;
+	public float TractorSign = 1.0f;
 
 	public float Range = 20.0f;
 
@@ -43,7 +44,11 @@ public class GravityWell : MonoBehaviour
 
 				if(Tractoring)
 				{
-					vector *= TractorStrength;
+					vector *= TractorStrength * TractorSign;
+					if(TractorSign < 0)
+					{
+						vector *= 3;
+					}
 				}
 				else
 				{
