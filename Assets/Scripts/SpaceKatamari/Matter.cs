@@ -30,7 +30,7 @@ public class Matter : MonoBehaviour
         
   }
 
-	public void CaptureObject(PlayerKatamari katamari)
+	public virtual void CaptureObject(PlayerKatamari katamari)
 	{
 		Attached = true;
 		ParentKatamari = katamari;
