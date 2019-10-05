@@ -620,5 +620,15 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2264000376559420628, guid: 4c096915c404aba4ba442e8044ace64c,
+        type: 3}
+      propertyPath: ConstantTorque
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2264000376559420619, guid: 4c096915c404aba4ba442e8044ace64c,
+        type: 3}
+      propertyPath: Mass
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4c096915c404aba4ba442e8044ace64c, type: 3}

@@ -136,6 +136,7 @@ GameObject:
   - component: {fileID: 2264000376559420619}
   - component: {fileID: 2264000376559420616}
   - component: {fileID: 2264000376559420618}
+  - component: {fileID: 5725064493002611178}
   m_Layer: 0
   m_Name: space_katamari
   m_TagString: Player
@@ -176,7 +177,7 @@ MonoBehaviour:
   CapturedObjects: []
   MasterRigidbody: {fileID: 2264000376559420630}
   Well: {fileID: 8120971762238475322}
-  ConstantTorque: 1
+  ConstantTorque: 5
   ChildGravitySize: 2
   ChildGravityStrengthMultiplier: 0.05
 --- !u!54 &2264000376559420630
@@ -242,6 +243,20 @@ MonoBehaviour:
   MovementSpeed: 20
   TractorSpeed: 10
   RotateSpeed: 3
+--- !u!114 &5725064493002611178
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2264000376559420629}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58cfbe1674b84bd47ae43f1cff74c8db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentTeam: 1
+  Active: 1
 --- !u!1 &8750084171344746823
 GameObject:
   m_ObjectHideFlags: 0
