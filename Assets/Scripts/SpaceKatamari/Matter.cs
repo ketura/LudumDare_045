@@ -27,7 +27,9 @@ public class Matter : MonoBehaviour
   // Update is called once per frame
   void Update()
   {
-        
+        if (Mass <= 0) {
+            Destroy(this.gameObject);
+        }
   }
 
 	public virtual void CaptureObject(PlayerKatamari katamari)
@@ -59,4 +61,5 @@ public class Matter : MonoBehaviour
 
 		ParentKatamari.OnMatterTouch(otherMatter);
 	}
+    
 }

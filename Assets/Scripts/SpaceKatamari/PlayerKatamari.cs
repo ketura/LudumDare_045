@@ -11,6 +11,7 @@ public class PlayerKatamari : MonoBehaviour
 	public GravityWell Well;
 
 	public float ConstantTorque = 5.0f;
+	public float MaxTorque = 50.0f;
 
 	public float ChildGravitySize = 2.0f;
 	public float ChildGravityStrengthMultiplier = 0.05f;
@@ -36,7 +37,7 @@ public class PlayerKatamari : MonoBehaviour
   // Update is called once per frame
   void Update()
   {
-		MasterRigidbody.AddTorque(0, ConstantTorque * MasterRigidbody.mass * Time.deltaTime, 0);
+		
 
   }
 
@@ -56,5 +57,10 @@ public class PlayerKatamari : MonoBehaviour
 	public void AttractObject(Matter matter)
 	{
 		
+	}
+
+	public static PlayerKatamari GetPlayer()
+	{
+		return GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerKatamari>();
 	}
 }
