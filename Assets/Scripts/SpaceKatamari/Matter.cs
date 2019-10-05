@@ -36,6 +36,7 @@ public class Matter : MonoBehaviour
 		transform.SetParent(katamari.CaptureAnchor, true);
 		Rigidbody.isKinematic = true;
 		Rigidbody.velocity = Vector3.zero;
+
 		Collider.isTrigger = true;
 	}
 

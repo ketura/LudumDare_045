@@ -43,6 +43,10 @@ public class PlayerKatamari : MonoBehaviour
 	public void OnMatterTouch(Matter matter)
 	{
 		matter.CaptureObject(this);
+		Vector3 totalMomentum = (matter.Rigidbody.mass * matter.Rigidbody.velocity) + (MasterRigidbody.mass * MasterRigidbody.velocity);
+		MasterRigidbody.mass += matter.Rigidbody.mass;
+		MasterRigidbody.velocity = totalMomentum / MasterRigidbody.mass;
+
 		CapturedObjects.Add(matter);
 		var well = matter.gameObject.AddComponent<GravityWell>();
 		well.Range = ChildGravitySize;
