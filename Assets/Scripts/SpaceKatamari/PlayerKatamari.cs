@@ -11,6 +11,9 @@ public class PlayerKatamari : MonoBehaviour
 
 	public GravityWell Well;
 
+	public float ChildGravitySize = 2.0f;
+	public float ChildGravityStrength = 0.05f;
+
 
   // Start is called before the first frame update
   void Start()
@@ -39,6 +42,9 @@ public class PlayerKatamari : MonoBehaviour
 	{
 		matter.CaptureObject(this);
 		CapturedObjects.Add(matter);
+		var well = matter.gameObject.AddComponent<GravityWell>();
+		well.Range = ChildGravitySize;
+		well.GravityStrength = ChildGravityStrength;
 	}
 
 	public void AttractObject(Matter matter)

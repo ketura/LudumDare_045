@@ -6,7 +6,7 @@ public class GravityWell : MonoBehaviour
 {
 	public PlayerKatamari MasterKatamari;
 
-	public bool Attracting;
+	public bool Attracting = true;
 
 	public float GravityStrength = 1.0f;
 	public float Range = 20.0f;
@@ -14,12 +14,14 @@ public class GravityWell : MonoBehaviour
 	// Start is called before the first frame update
 	void Start()
   {
-
 	}
 
   // Update is called once per frame
   void Update()
   {
+		if (!Attracting)
+			return;
+
 		Collider[] hits = Physics.OverlapSphere(this.transform.position, Range);
 
 		foreach (var hit in hits)
@@ -42,6 +44,12 @@ public class GravityWell : MonoBehaviour
 			}
 		}
 	}
+
+	private void OnDrawGizmos()
+	{
+		Gizmos.DrawWireSphere(transform.position, Range);
+	}
+	
 
 	//private void OnTriggerStay(Collider other)
 	//{

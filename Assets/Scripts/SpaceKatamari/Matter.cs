@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody))]
+
 public class Matter : MonoBehaviour
 {
 	public PlayerKatamari ParentKatamari;
