@@ -10,6 +10,7 @@ public class Matter : MonoBehaviour
 
 	public int Mass;
 	public bool Attached;
+    public bool Active = true;
 
 	public Rigidbody Rigidbody;
 	public Collider Collider;

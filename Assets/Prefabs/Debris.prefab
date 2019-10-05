@@ -139,7 +139,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 84
   m_CollisionDetection: 0
 --- !u!114 &3452723128775455433
 MonoBehaviour:
@@ -156,5 +156,6 @@ MonoBehaviour:
   ParentKatamari: {fileID: 0}
   Mass: 10
   Attached: 0
+  Active: 1
   Rigidbody: {fileID: 3452723128775455432}
   Collider: {fileID: 3452723127386209708}
