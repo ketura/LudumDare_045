@@ -24,9 +24,9 @@ public class PlayerController : MonoBehaviour
 		Map = MapBounds.Instance;
   }
 
-  // Update is called once per frame
-  void Update()
-  {
+	// Update is called once per frame
+	void Update()
+	{
 		Vector3 movement = Vector2.zero;
 
 		movement.z += Input.GetAxis("Vertical");
@@ -45,13 +45,13 @@ public class PlayerController : MonoBehaviour
 		}
 
 
-		if(Input.GetButtonDown("Tractor"))
+		if (Input.GetButtonDown("Tractor"))
 		{
 			OriginalWellPosition = Player.Well.transform.position;
 			Player.Well.Tractoring = true;
 		}
 
-		if(Input.GetButton("Tractor"))
+		if (Input.GetButton("Tractor"))
 		{
 			Vector3 point;
 
@@ -74,7 +74,7 @@ public class PlayerController : MonoBehaviour
 			Player.Well.transform.position = Vector3.Lerp(Player.Well.transform.position, Player.transform.position, TractorSpeed * Time.deltaTime);
 		}
 
-		if(Input.GetButtonUp("Tractor"))
+		if (Input.GetButtonUp("Tractor"))
 		{
 			Player.Well.Tractoring = false;
 		}
@@ -87,6 +87,18 @@ public class PlayerController : MonoBehaviour
 		if (Input.GetButtonUp("Repel"))
 		{
 			Player.Well.TractorSign = 1.0f;
+		}
+
+		float rotate = Input.GetAxis("Rotate") * RotateSpeed;
+		if (rotate == 0)
+		{
+			if (Player.MasterRigidbody.angularVelocity.y < 2)
+			{
+				Player.MasterRigidbody.AddTorque(0, Player.ConstantTorque * Player.MasterRigidbody.mass * Time.deltaTime, 0);
+			}
+		}
+		{ 
+			Player.MasterRigidbody.AddTorque(0, rotate * Player.MasterRigidbody.mass * Time.deltaTime, 0);
 		}
 
 	}
