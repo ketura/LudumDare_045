@@ -1,0 +1,54 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class EnemyAI : MonoBehaviour
+{
+    public float acquisitionInterval = 1f;
+    public float acquisitionRange = 100;
+
+    private float acquisitionTimer = 0f;
+    protected GameObject player = null;
+    protected Rigidbody rigidBody;
+    protected Ship myShip;
+
+    // Start is called before the first frame update
+    protected void Start()
+    {
+        rigidBody = GetComponent<Rigidbody>();
+        myShip = GetComponent<Ship>();
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        if (myShip != null && myShip.Active)
+        {
+            acquisitionTimer += Time.deltaTime;
+            if (acquisitionTimer >= acquisitionInterval)
+            {
+                acquisitionTimer = 0f;
+                player = null;
+                PlayerKatamari[] katamaris = FindObjectsOfType<PlayerKatamari>();
+                if (katamaris.Length > 0)
+                {
+                    PlayerKatamari katamari = katamaris[0];
+                    if (Vector3.Distance(transform.position, katamari.transform.position) <= acquisitionRange)
+                    {
+                        player = katamari.gameObject;
+                    }
+                }
+            }
+
+            if (player != null)
+                Behave();
+            else
+                rigidBody.velocity = Vector3.zero;
+        }
+    }
+
+    public virtual void Behave()
+    {
+        transform.Rotate(new Vector3(0, 10 * Time.deltaTime, 0));
+    }
+}

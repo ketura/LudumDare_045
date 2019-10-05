@@ -14,7 +14,7 @@ public class Weapon : MonoBehaviour
     private float cooldownTimer = 0f;
     private float targetAcquisitionTimer = 0f;
 
-    private GameObject currentTarget = null;
+    public GameObject currentTarget = null;
     private Ship myShip;
 
     // Start is called before the first frame update
@@ -52,6 +52,7 @@ public class Weapon : MonoBehaviour
 
     public void UpdateShip()
     {
+        currentTarget = null;
         myShip = transform.root.GetComponent<Ship>();
     }
 
