@@ -36,7 +36,7 @@ public class PlayerKatamari : MonoBehaviour
   // Update is called once per frame
   void Update()
   {
-		MasterRigidbody.AddTorque(0, ConstantTorque * Time.deltaTime, 0);
+		MasterRigidbody.AddTorque(0, ConstantTorque * MasterRigidbody.mass * Time.deltaTime, 0);
 
   }
 
