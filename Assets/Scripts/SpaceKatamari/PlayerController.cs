@@ -11,6 +11,8 @@ public class PlayerController : MonoBehaviour
 
 	public float TractorSpeed = 10.0f;
 
+	public float RotateSpeed = 3.0f;
+
 
 	private Vector3 OriginalWellPosition = Vector3.zero;
 
@@ -27,25 +29,8 @@ public class PlayerController : MonoBehaviour
   {
 		Vector3 movement = Vector2.zero;
 
-		if (Input.GetKey(KeyCode.W))
-		{
-			movement.z += 1;
-		}
-
-		if (Input.GetKey(KeyCode.S))
-		{
-			movement.z -= 1;
-		}
-
-		if (Input.GetKey(KeyCode.A))
-		{
-			movement.x -= 1;
-		}
-
-		if (Input.GetKey(KeyCode.D))
-		{
-			movement.x += 1;
-		}
+		movement.z += Input.GetAxis("Vertical");
+		movement.x += Input.GetAxis("Horizontal");
 
 		movement *= MovementSpeed * Time.deltaTime;
 
@@ -59,13 +44,14 @@ public class PlayerController : MonoBehaviour
 			Player.MasterRigidbody.velocity -= (deltaVector * Time.deltaTime);
 		}
 
-		if(Input.GetMouseButtonDown(0))
+
+		if(Input.GetButtonDown("Tractor"))
 		{
 			OriginalWellPosition = Player.Well.transform.position;
 			Player.Well.Tractoring = true;
 		}
 
-		if(Input.GetMouseButton(0))
+		if(Input.GetButton("Tractor"))
 		{
 			Vector3 point;
 
@@ -88,10 +74,22 @@ public class PlayerController : MonoBehaviour
 			Player.Well.transform.position = Vector3.Lerp(Player.Well.transform.position, Player.transform.position, TractorSpeed * Time.deltaTime);
 		}
 
-		if(Input.GetMouseButtonUp(0))
+		if(Input.GetButtonUp("Tractor"))
 		{
 			Player.Well.Tractoring = false;
 		}
 
+		if (Input.GetButtonDown("Repel"))
+		{
+			Player.Well.TractorSign = -1.0f;
+		}
+
+		if (Input.GetButtonUp("Repel"))
+		{
+			Player.Well.TractorSign = 1.0f;
+		}
+
 	}
+
+
 }

@@ -176,6 +176,7 @@ MonoBehaviour:
   CapturedObjects: []
   MasterRigidbody: {fileID: 2264000376559420630}
   Well: {fileID: 8120971762238475322}
+  ConstantTorque: 1
   ChildGravitySize: 2
   ChildGravityStrengthMultiplier: 0.05
 --- !u!54 &2264000376559420630
@@ -188,7 +189,7 @@ Rigidbody:
   serializedVersion: 2
   m_Mass: 1
   m_Drag: 3
-  m_AngularDrag: 0.1
+  m_AngularDrag: 0.5
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
@@ -209,6 +210,7 @@ MonoBehaviour:
   ParentKatamari: {fileID: 2264000376559420628}
   Mass: 0
   Attached: 1
+  Active: 1
   Rigidbody: {fileID: 2264000376559420630}
   Collider: {fileID: 2264000375430084413}
 --- !u!135 &2264000376559420616
@@ -237,11 +239,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Player: {fileID: 2264000376559420628}
-  ClickableMask:
-    serializedVersion: 2
-    m_Bits: 0
   MovementSpeed: 20
   TractorSpeed: 10
+  RotateSpeed: 3
 --- !u!1 &8750084171344746823
 GameObject:
   m_ObjectHideFlags: 0
@@ -287,5 +287,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MasterKatamari: {fileID: 2264000376559420628}
   Attracting: 1
-  GravityStrength: 1
+  Tractoring: 0
+  GravityStrength: 50
+  TractorStrength: 100
+  TractorSign: 1
   Range: 6

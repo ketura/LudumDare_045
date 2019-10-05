@@ -245,6 +245,7 @@ MonoBehaviour:
   ParentKatamari: {fileID: 0}
   Mass: 10
   Attached: 0
+  Active: 1
   Rigidbody: {fileID: 161625913}
   Collider: {fileID: 904527631}
 --- !u!54 &161625913
@@ -311,6 +312,7 @@ MonoBehaviour:
   ParentKatamari: {fileID: 0}
   Mass: 10
   Attached: 0
+  Active: 1
   Rigidbody: {fileID: 302092046}
   Collider: {fileID: 1666831500}
 --- !u!54 &302092046
@@ -469,6 +471,7 @@ MonoBehaviour:
   ParentKatamari: {fileID: 0}
   Mass: 10
   Attached: 0
+  Active: 1
   Rigidbody: {fileID: 601522118}
   Collider: {fileID: 491072932}
 --- !u!54 &601522118
@@ -620,6 +623,7 @@ MonoBehaviour:
   ParentKatamari: {fileID: 0}
   Mass: 10
   Attached: 0
+  Active: 1
   Rigidbody: {fileID: 787672066}
   Collider: {fileID: 624943639}
   timer: 5
@@ -756,6 +760,7 @@ MonoBehaviour:
   ParentKatamari: {fileID: 0}
   Mass: 10
   Attached: 0
+  Active: 1
   Rigidbody: {fileID: 825807252}
   Collider: {fileID: 813805979}
 --- !u!54 &825807252
@@ -1017,6 +1022,7 @@ MonoBehaviour:
   ParentKatamari: {fileID: 0}
   Mass: 10
   Attached: 0
+  Active: 1
   Rigidbody: {fileID: 985964968}
   Collider: {fileID: 18024830}
 --- !u!54 &985964968
@@ -1083,6 +1089,7 @@ MonoBehaviour:
   ParentKatamari: {fileID: 0}
   Mass: 10
   Attached: 0
+  Active: 1
   Rigidbody: {fileID: 1040762404}
   Collider: {fileID: 1216733667}
 --- !u!54 &1040762404
@@ -1149,6 +1156,7 @@ MonoBehaviour:
   ParentKatamari: {fileID: 0}
   Mass: 10
   Attached: 0
+  Active: 1
   Rigidbody: {fileID: 1199696121}
   Collider: {fileID: 1273957668}
 --- !u!54 &1199696121
@@ -1411,6 +1419,7 @@ MonoBehaviour:
   ParentKatamari: {fileID: 0}
   Mass: 10
   Attached: 0
+  Active: 1
   Rigidbody: {fileID: 1326617863}
   Collider: {fileID: 1419462495}
 --- !u!54 &1326617863
@@ -1754,6 +1763,7 @@ MonoBehaviour:
   ParentKatamari: {fileID: 0}
   Mass: 10
   Attached: 0
+  Active: 1
   Rigidbody: {fileID: 1517432470}
   Collider: {fileID: 1893848525}
 --- !u!54 &1517432470
@@ -2096,6 +2106,7 @@ MonoBehaviour:
   ParentKatamari: {fileID: 0}
   Mass: 10
   Attached: 0
+  Active: 1
   Rigidbody: {fileID: 2037457932}
   Collider: {fileID: 1831206891}
 --- !u!54 &2037457932
@@ -2162,6 +2173,7 @@ MonoBehaviour:
   ParentKatamari: {fileID: 0}
   Mass: 10
   Attached: 0
+  Active: 1
   Rigidbody: {fileID: 2088584417}
   Collider: {fileID: 1352679324}
 --- !u!54 &2088584417
@@ -2335,26 +2347,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2264000376559420628, guid: 4c096915c404aba4ba442e8044ace64c,
-        type: 3}
-      propertyPath: ConstantTorque
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2264000376559420630, guid: 4c096915c404aba4ba442e8044ace64c,
-        type: 3}
-      propertyPath: m_AngularDrag
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 8120971762238475322, guid: 4c096915c404aba4ba442e8044ace64c,
-        type: 3}
-      propertyPath: GravityStrength
-      value: 30
-      objectReference: {fileID: 0}
-    - target: {fileID: 8120971762238475322, guid: 4c096915c404aba4ba442e8044ace64c,
-        type: 3}
-      propertyPath: TractorStrength
-      value: 100
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4c096915c404aba4ba442e8044ace64c, type: 3}
