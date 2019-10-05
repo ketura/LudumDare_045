@@ -14,10 +14,12 @@ public class PlayerController : MonoBehaviour
 
 	private Vector3 OriginalWellPosition = Vector3.zero;
 
+	private MapBounds Map;
+
   // Start is called before the first frame update
   void Start()
   {
-        
+		Map = MapBounds.Instance;
   }
 
   // Update is called once per frame
@@ -49,12 +51,19 @@ public class PlayerController : MonoBehaviour
 
 		Player.MasterRigidbody.velocity += movement;
 
+		var overshot = Vector3.Distance(Player.transform.position, Map.transform.position);
+		if (overshot > Map.WorldRadius)
+		{
+			float delta = 1 - (Map.WorldRadius / overshot);
+			var deltaVector = Vector3.Lerp(Player.transform.position, Map.transform.position, delta);
+			Player.MasterRigidbody.velocity -= (deltaVector * Time.deltaTime);
+		}
+
 		if(Input.GetMouseButtonDown(0))
 		{
 			OriginalWellPosition = Player.Well.transform.position;
 			Player.Well.Tractoring = true;
 		}
-		
 
 		if(Input.GetMouseButton(0))
 		{
