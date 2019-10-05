@@ -12,7 +12,7 @@ public class PlayerKatamari : MonoBehaviour
 	public GravityWell Well;
 
 	public float ChildGravitySize = 2.0f;
-	public float ChildGravityStrength = 0.05f;
+	public float ChildGravityStrengthMultiplier = 0.05f;
 
 
   // Start is called before the first frame update
@@ -44,7 +44,7 @@ public class PlayerKatamari : MonoBehaviour
 		CapturedObjects.Add(matter);
 		var well = matter.gameObject.AddComponent<GravityWell>();
 		well.Range = ChildGravitySize;
-		well.GravityStrength = ChildGravityStrength;
+		well.GravityStrength = ChildGravityStrengthMultiplier * matter.Mass;
 	}
 
 	public void AttractObject(Matter matter)
