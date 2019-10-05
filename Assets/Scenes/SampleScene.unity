@@ -2354,7 +2354,7 @@ PrefabInstance:
     - target: {fileID: 8120971762238475322, guid: 4c096915c404aba4ba442e8044ace64c,
         type: 3}
       propertyPath: TractorStrength
-      value: 70
+      value: 100
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4c096915c404aba4ba442e8044ace64c, type: 3}
