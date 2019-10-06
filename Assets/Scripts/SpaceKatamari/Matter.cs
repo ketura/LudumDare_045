@@ -128,20 +128,21 @@ public class Matter : MonoBehaviour
 			Rigidbody.mass = Mass;
 		}
 	}
+
     IEnumerator DamageBlink()
     {
         float blinktime = 0.1f;
-      
+
         Renderer[] childrenRenderers = gameObject.GetComponentsInChildren<Renderer>();
         for (float t = 0; t < 4; t++)
         {
-            
+
 
             foreach (Renderer r in childrenRenderers)
             {
                 r.enabled = !r.enabled;
-            } 
-              yield return new WaitForSeconds(blinktime);
+            }
+            yield return new WaitForSeconds(blinktime);
 
         }
         CaptureCollider.GetComponent<Renderer>().enabled = true;
@@ -151,7 +152,7 @@ public class Matter : MonoBehaviour
         }
     }
 
-        public void DestroyMatter(bool destroy = true)
+    public void DestroyMatter(bool destroy = true)
 	{
 		if (gameObject.tag == "Player")
 		{

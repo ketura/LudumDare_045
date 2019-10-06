@@ -120,12 +120,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!135 &214450882 stripped
-SphereCollider:
-  m_CorrespondingSourceObject: {fileID: 2264000376559420616, guid: 4c096915c404aba4ba442e8044ace64c,
-    type: 3}
-  m_PrefabInstance: {fileID: 2264000375616718649}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &406258025
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -399,12 +393,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba91ddd21fdc2dc42b18f9457a38c5d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!65 &1262155334 stripped
-BoxCollider:
-  m_CorrespondingSourceObject: {fileID: 2264000375430084413, guid: 4c096915c404aba4ba442e8044ace64c,
-    type: 3}
-  m_PrefabInstance: {fileID: 2264000375616718649}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1294989992
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -776,51 +764,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2264000376559420628, guid: 4c096915c404aba4ba442e8044ace64c,
-        type: 3}
-      propertyPath: ConstantTorque
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2264000376559420628, guid: 4c096915c404aba4ba442e8044ace64c,
-        type: 3}
-      propertyPath: MomentumCap
-      value: 50
-      objectReference: {fileID: 0}
-    - target: {fileID: 2264000376559420630, guid: 4c096915c404aba4ba442e8044ace64c,
-        type: 3}
-      propertyPath: m_AngularDrag
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2264000376559420619, guid: 4c096915c404aba4ba442e8044ace64c,
-        type: 3}
-      propertyPath: Mass
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 2264000376559420619, guid: 4c096915c404aba4ba442e8044ace64c,
-        type: 3}
-      propertyPath: PhysicsCollider
-      value: 
-      objectReference: {fileID: 214450882}
-    - target: {fileID: 2264000376559420619, guid: 4c096915c404aba4ba442e8044ace64c,
-        type: 3}
-      propertyPath: CaptureCollider
-      value: 
-      objectReference: {fileID: 1262155334}
-    - target: {fileID: 2264000376559420619, guid: 4c096915c404aba4ba442e8044ace64c,
-        type: 3}
-      propertyPath: MomentumDamageMultiplier
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8120971762238475322, guid: 4c096915c404aba4ba442e8044ace64c,
-        type: 3}
-      propertyPath: GravityStrength
-      value: 30
-      objectReference: {fileID: 0}
-    - target: {fileID: 8120971762238475322, guid: 4c096915c404aba4ba442e8044ace64c,
-        type: 3}
-      propertyPath: TractorStrength
-      value: 70
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4c096915c404aba4ba442e8044ace64c, type: 3}
