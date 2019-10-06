@@ -49,6 +49,22 @@ public class AttachNode
 
 		return result;
 	}
+
+	public void RemoveReferencesToChild(Matter node)
+	{
+		var childs = Children.ToArray();
+		foreach (var child in childs)
+		{
+			if (child.Node == node)
+			{
+				Children.Remove(child);
+			}
+			else
+			{
+				child.RemoveReferencesToChild(node);
+			}
+		}
+	}
 }
 
 public enum PlayerState
@@ -177,7 +193,7 @@ public class PlayerKatamari : MonoBehaviour
 		var children = node.GetAllChildren();
 		foreach(var child in children)
 		{
-			if (child.Node.gameObject == null)
+			if (child.Node.gameObject == null || !CapturedObjects.Contains(child.Node))
 				continue;
 
 			Destroy(child.Node.GetComponent<GravityWell>());
@@ -186,9 +202,13 @@ public class PlayerKatamari : MonoBehaviour
 			MasterRigidbody.velocity = totalMomentum / MasterRigidbody.mass;
 
 			child.Node.DetachObject(node.Node.transform.position, 1.0f);
+
+			Root.RemoveReferencesToChild(child.Node);
 		}
 
-		if(matter != Root.Node && destroyMatter)
+		Root.RemoveReferencesToChild(node.Node);
+
+		if (matter != Root.Node && destroyMatter)
 		{
 			node.Node.DestroyMatter();
 		}
@@ -197,6 +217,9 @@ public class PlayerKatamari : MonoBehaviour
 
 	public void ChangeState(PlayerState newState)
 	{
+		if (CurrentState == newState)
+			return;
+
 		CurrentState = newState;
 		switch (newState)
 		{

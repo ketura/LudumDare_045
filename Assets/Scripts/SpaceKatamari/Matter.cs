@@ -14,6 +14,8 @@ public class Matter : MonoBehaviour
 	public bool Invincible = false;
 	public float ExplosionMultiplier = 1.0f;
 
+	public float MomentumDamageMultiplier = 0.05f;
+
 	public Rigidbody Rigidbody;
 	public Collider CaptureCollider;
 	public Collider PhysicsCollider;
@@ -92,7 +94,15 @@ public class Matter : MonoBehaviour
 
 		Ship ship = other.GetComponentInParent<Ship>();
 		if (ship != null)
+		{
+			float momentum = (ParentKatamari.MasterRigidbody.mass * ParentKatamari.MasterRigidbody.velocity).magnitude * MomentumDamageMultiplier;
+			Debug.Log($"{gameObject.name} hitting {otherMatter.name} with momentum {momentum}");
+
+			otherMatter.Damage((int)(momentum));
+
 			return;
+		}
+			
 
 		if(ParentKatamari != null)
 		{
@@ -127,6 +137,11 @@ public class Matter : MonoBehaviour
 		else if (ParentKatamari != null)
 		{
 			ParentKatamari.DestroyAttached(this, false);
+
+			if (destroy && this.gameObject != null)
+			{
+				Destroy(this.gameObject);
+			}
 		}
 		else
 		{
@@ -136,9 +151,15 @@ public class Matter : MonoBehaviour
 				ship.DestroyShip();
 			}
 
+			var parentShip = GetComponentInParent<Ship>();
+			if(parentShip != null)
+			{
+				parentShip.DestroyModule(this);
+			}
+
 			if (destroy && this.gameObject != null)
 			{
-				DestroyMatter(this.gameObject);
+				Destroy(this.gameObject);
 			}
 
 			

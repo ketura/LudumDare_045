@@ -62,6 +62,9 @@ public class Mine : Matter
 	public void explode() 
 	{
 		Collider[] hitColliders=   Physics.OverlapSphere(this.transform.position, explosionRadius);
+		List<Matter> affectedMatter = new List<Matter>();
+		Matter katamari = null;
+		
 		foreach (Collider c in hitColliders)
 		{
 			var matter = c.GetComponentInParent<Matter>();
@@ -71,11 +74,30 @@ public class Mine : Matter
 				matter = c.GetComponent<Matter>();
 			}
            
-			if (matter != null)
+			if (matter != null && !affectedMatter.Contains(matter) && matter != this)
 			{
-				matter.Mass -= damage;
+				if(matter.gameObject.tag == "Player")
+				{
+					katamari = matter;
+				}
+				else
+				{
+					affectedMatter.Add(matter);
+				}
+				
 			}
 		}
+
+		foreach(var matter in affectedMatter)
+		{
+			matter.Damage(damage);
+		}
+
+		if(katamari != null)
+		{
+			katamari.Damage(damage);
+		}
+
 		if (this.gameObject.GetComponent<ParticleSystem>()!=null) 
 		{
 			this.gameObject.GetComponent<ParticleSystem>().Play();

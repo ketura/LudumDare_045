@@ -807,6 +807,11 @@ PrefabInstance:
       propertyPath: CaptureCollider
       value: 
       objectReference: {fileID: 1262155334}
+    - target: {fileID: 2264000376559420619, guid: 4c096915c404aba4ba442e8044ace64c,
+        type: 3}
+      propertyPath: MomentumDamageMultiplier
+      value: 0.1
+      objectReference: {fileID: 0}
     - target: {fileID: 8120971762238475322, guid: 4c096915c404aba4ba442e8044ace64c,
         type: 3}
       propertyPath: GravityStrength
@@ -954,6 +959,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8502846639145661150, guid: 3378bcbeadd01d04e9baaf77c88ff1af,
+        type: 3}
+      propertyPath: MomentumDamageMultiplier
+      value: 0.1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3378bcbeadd01d04e9baaf77c88ff1af, type: 3}

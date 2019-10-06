@@ -38,4 +38,12 @@ public class Ship : MonoBehaviour
 			}
 		}
 	}
+
+	public void DestroyModule(Matter matter)
+	{
+		if(ChildModules.Contains(matter.gameObject))
+		{
+			ChildModules.Remove(matter.gameObject);
+		}
+	}
 }
