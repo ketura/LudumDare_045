@@ -8,6 +8,7 @@ public class Weapon : MonoBehaviour
     public float cooldown = 1f;
     public float acquisitionInterval = 1f;
     public float rotationSpeed = 15f;
+    public GameObject TurretHead;
     public GameObject bulletType;
     public GameObject bulletSpawnPoint;
 
@@ -15,7 +16,7 @@ public class Weapon : MonoBehaviour
     private float targetAcquisitionTimer = 0f;
 
     public GameObject currentTarget = null;
-    private Ship myShip;
+    public Ship myShip;
 
     // Start is called before the first frame update
     void Start()
@@ -33,7 +34,8 @@ public class Weapon : MonoBehaviour
         if (targetAcquisitionTimer >= acquisitionInterval)
         {
             targetAcquisitionTimer = 0f;
-            AcquireTarget();
+            if (currentTarget == null || Vector3.Distance(transform.position, currentTarget.transform.position) > range)
+                AcquireTarget();
         }
 
         bool weaponAimed = false;
@@ -95,15 +97,14 @@ public class Weapon : MonoBehaviour
     private bool AimWeapon()
     {
         Quaternion targetRotation = Quaternion.LookRotation(currentTarget.transform.position - transform.root.position);
-        transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
+        TurretHead.transform.rotation = Quaternion.RotateTowards(TurretHead.transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
 
-        return transform.rotation == targetRotation;
+        return TurretHead.transform.rotation == targetRotation;
     }
 
     private void FireWeapon()
     {
-        GameObject bullet = GameObject.Instantiate(bulletType, bulletSpawnPoint.transform.position, transform.rotation);
-        bullet.transform.rotation = transform.rotation;
+        GameObject bullet = GameObject.Instantiate(bulletType, bulletSpawnPoint.transform.position, TurretHead.transform.rotation);
         Bullet bulletComponent = bullet.GetComponent<Bullet>();
         if (bulletComponent != null)
         {

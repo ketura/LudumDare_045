@@ -45,8 +45,8 @@ public class Matter : MonoBehaviour
             ship.Active = false;
         }
 
-        Weapon weapon = GetComponent<Weapon>();
-        if (weapon != null)
+        Weapon[] weapons = GetComponentsInChildren<Weapon>();
+        foreach (Weapon weapon in weapons)
         {
             weapon.UpdateShip();
         }

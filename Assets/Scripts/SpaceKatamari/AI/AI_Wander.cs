@@ -7,6 +7,7 @@ public class AI_Wander : EnemyAI
     public float directionChangeInterval = 4f;
     public float acceleration = 2f;
     public float maxSpeed = 2f;
+    public float rotationSpeed = 90f;
 
     private float directionChangeTimer = 0f;
     public Quaternion dir;
@@ -26,9 +27,9 @@ public class AI_Wander : EnemyAI
             dir = Quaternion.Euler(0, Random.Range(0f, 360f), 0);
         }
 
+        transform.rotation = Quaternion.RotateTowards(transform.rotation, dir, rotationSpeed * Time.deltaTime);
+
         Vector3 newVelocity = rigidBody.velocity + (dir * Vector3.forward * acceleration * Time.deltaTime);
         rigidBody.velocity = Vector3.ClampMagnitude(newVelocity, maxSpeed);
-
-        base.Behave();
     }
 }
