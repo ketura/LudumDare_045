@@ -563,6 +563,7 @@ GameObject:
   - component: {fileID: 6820290112325528424}
   - component: {fileID: 1678338968612169031}
   - component: {fileID: 303025537702600272}
+  - component: {fileID: 1800995379}
   m_Layer: 0
   m_Name: Thruster
   m_TagString: Untagged
@@ -607,10 +608,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.45
-  m_Height: 2
+  m_Radius: 0.6
+  m_Height: 3
   m_Direction: 1
-  m_Center: {x: 0, y: -0.25, z: 0}
+  m_Center: {x: 0, y: -0.79, z: 0}
 --- !u!54 &6820290112325528424
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -646,7 +647,8 @@ MonoBehaviour:
   Invincible: 0
   ExplosionMultiplier: 1
   Rigidbody: {fileID: 0}
-  Collider: {fileID: 303025537702600279}
+  CaptureCollider: {fileID: 303025537702600279}
+  PhysicsCollider: {fileID: 1800995379}
 --- !u!114 &303025537702600272
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -663,6 +665,20 @@ MonoBehaviour:
   NozzleRotationSpeed: 360
   NozzleRotationBase: {fileID: 303025535688490457}
   exaustParticleSystem: {fileID: 2712349753932308113}
+--- !u!136 &1800995379
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 303025537702600276}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 0
+  m_Radius: 0.45
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: -0.25, z: 0}
 --- !u!1 &6579471253754160547
 GameObject:
   m_ObjectHideFlags: 0

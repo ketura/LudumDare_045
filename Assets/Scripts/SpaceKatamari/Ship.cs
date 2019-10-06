@@ -9,6 +9,11 @@ public class Ship : MonoBehaviour
     public Team currentTeam = Team.Neutral;
     public bool Active = true;
 
+	public float DeathForce = 10.0f;
+
+	public Transform ModuleAnchor;
+	public List<GameObject> ChildModules;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -20,4 +25,17 @@ public class Ship : MonoBehaviour
     {
         
     }
+
+	public void DestroyShip()
+	{
+		foreach(var child in ChildModules)
+		{
+			child.transform.SetParent(null);
+			var rb = child.GetComponent<Rigidbody>();
+			if(rb != null)
+			{
+				rb.AddExplosionForce(DeathForce, this.transform.position, 2.0f);
+			}
+		}
+	}
 }

@@ -15,15 +15,22 @@ public class Matter : MonoBehaviour
 	public float ExplosionMultiplier = 1.0f;
 
 	public Rigidbody Rigidbody;
-	public Collider Collider;
+	public Collider CaptureCollider;
+	public Collider PhysicsCollider;
 
-  // Start is called before the first frame update
-  void Start()
+	// Start is called before the first frame update
+	void Start()
   {
 		Rigidbody = GetComponent<Rigidbody>();
 
-		if(Collider == null)
-			Debug.LogError($"Forgot to set {nameof(Collider)} on {this.gameObject.name}!");
+		if (CaptureCollider == null)
+			Debug.LogError($"Forgot to set {nameof(CaptureCollider)} on {this.gameObject.name}!");
+
+		if (PhysicsCollider == null)
+			Debug.LogError($"Forgot to set {nameof(PhysicsCollider)} on {this.gameObject.name}!");
+
+		PhysicsCollider.enabled = false;
+		CaptureCollider.enabled = true;
 	}
 
   // Update is called once per frame
@@ -52,7 +59,8 @@ public class Matter : MonoBehaviour
             weapon.UpdateShip();
         }
 
-        Collider.isTrigger = true;
+        CaptureCollider.isTrigger = true;
+		PhysicsCollider.enabled = true;
 	}
 
 	public virtual void DetachObject(Vector3 explosionPos, float explosionSize)
@@ -66,19 +74,24 @@ public class Matter : MonoBehaviour
 		Rigidbody.isKinematic = false;
 		Rigidbody.AddExplosionForce(10.0f, explosionPos, explosionSize * ExplosionMultiplier);
 
-		Collider.isTrigger = false;
+		CaptureCollider.isTrigger = false;
+		PhysicsCollider.enabled = false;
 
 		ParentKatamari = null;
 	}
 
 	public void OnTriggerEnter(Collider other)
 	{
-		Debug.Log("Matter Trigger Enter");
+		//Debug.Log("Matter Trigger Enter");
 		Matter otherMatter = other.GetComponentInParent<Matter>();
 		if (otherMatter == null)
 			return;
 
 		if (otherMatter.Attached)
+			return;
+
+		Ship ship = other.GetComponentInParent<Ship>();
+		if (ship != null)
 			return;
 
 		if(ParentKatamari != null)
@@ -97,24 +110,38 @@ public class Matter : MonoBehaviour
 
 		if (Mass <= 0)
 		{
-			if(ParentKatamari != null)
-			{
-				ParentKatamari.DestroyAttached(this);
-			}
-
-			if(gameObject.tag == "Player")
-			{
-				ParentKatamari.ChangeState(PlayerState.Killed);
-			}
-			else
-			{
-				Destroy(this.gameObject);
-			}
-			
+			DestroyMatter();
 		}
 		else
 		{
 			Rigidbody.mass = Mass;
+		}
+	}
+
+	public void DestroyMatter(bool destroy = true)
+	{
+		if (gameObject.tag == "Player")
+		{
+			ParentKatamari.ChangeState(PlayerState.Killed);
+		}
+		else if (ParentKatamari != null)
+		{
+			ParentKatamari.DestroyAttached(this, false);
+		}
+		else
+		{
+			var ship = GetComponent<Ship>();
+			if (ship != null)
+			{
+				ship.DestroyShip();
+			}
+
+			if (destroy && this.gameObject != null)
+			{
+				DestroyMatter(this.gameObject);
+			}
+
+			
 		}
 	}
     

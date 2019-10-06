@@ -170,6 +170,7 @@ GameObject:
   - component: {fileID: 1457836398520320922}
   - component: {fileID: 5838735361166523164}
   - component: {fileID: 1154837326556164112}
+  - component: {fileID: 701403704}
   m_Layer: 0
   m_Name: Turret
   m_TagString: Untagged
@@ -212,10 +213,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.4
-  m_Height: 2
+  m_Radius: 0.6
+  m_Height: 3
   m_Direction: 1
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &1457836398520320922
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -248,9 +249,11 @@ MonoBehaviour:
   Mass: 10
   Attached: 0
   Active: 1
+  Invincible: 0
   ExplosionMultiplier: 1
   Rigidbody: {fileID: 1457836398520320922}
-  Collider: {fileID: 3498299694202585589}
+  CaptureCollider: {fileID: 3498299694202585589}
+  PhysicsCollider: {fileID: 701403704}
 --- !u!114 &1154837326556164112
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -273,6 +276,20 @@ MonoBehaviour:
   bulletSpawnPoint: {fileID: 3775713987448789388}
   currentTarget: {fileID: 0}
   myShip: {fileID: 0}
+--- !u!136 &701403704
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1634078198350810188}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.4
+  m_Height: 1
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &3775713987448789388
 GameObject:
   m_ObjectHideFlags: 0

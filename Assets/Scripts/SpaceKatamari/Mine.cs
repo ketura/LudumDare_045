@@ -25,7 +25,7 @@ public class Mine : Matter
     IEnumerator Blink()
     {
         float blinktime=0.1f;
-        Renderer mineRenderer = base.Collider.gameObject.GetComponent<Renderer>();
+        Renderer mineRenderer = base.CaptureCollider.gameObject.GetComponent<Renderer>();
         for (float t=0;t<timer*2/3;t=+blinktime)
         {
             if (mineRenderer.material.color == Color.white)
@@ -76,12 +76,15 @@ public class Mine : Matter
 				matter.Mass -= damage;
 			}
 		}
-        if (this.gameObject.GetComponent<ParticleSystem>()!=null) {
-            this.gameObject.GetComponent<ParticleSystem>().Play();
-        }
-        base.Collider.gameObject.GetComponent<Renderer>().enabled = false ;
+		if (this.gameObject.GetComponent<ParticleSystem>()!=null) 
+		{
+			this.gameObject.GetComponent<ParticleSystem>().Play();
+		}
+		base.CaptureCollider.gameObject.GetComponent<Renderer>().enabled = false ;
 
-        Destroy(this.gameObject,1);
+		this.DestroyMatter(false);
+
+		Destroy(this.gameObject,1);
 
 	}
 
