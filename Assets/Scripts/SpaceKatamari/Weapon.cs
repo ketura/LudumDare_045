@@ -15,7 +15,7 @@ public class Weapon : MonoBehaviour
     private float cooldownTimer = 0f;
     private float targetAcquisitionTimer = 0f;
 
-    public GameObject currentTarget = null;
+    public Ship currentTarget = null;
     public Ship myShip;
 
     // Start is called before the first frame update
@@ -29,6 +29,11 @@ public class Weapon : MonoBehaviour
     {
 		if (myShip == null)
 			return;
+
+		if(currentTarget != null && (currentTarget.currentTeam == myShip.currentTeam || currentTarget.currentTeam == Ship.Team.Neutral))
+		{
+			currentTarget = null;
+		}
 
         targetAcquisitionTimer += Time.deltaTime;
         if (targetAcquisitionTimer >= acquisitionInterval)
@@ -90,7 +95,7 @@ public class Weapon : MonoBehaviour
         }
         else
         {
-            currentTarget = closestShip.gameObject;
+            currentTarget = closestShip;
         }
     }
 

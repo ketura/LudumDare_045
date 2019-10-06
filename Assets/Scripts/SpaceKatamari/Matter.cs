@@ -101,7 +101,16 @@ public class Matter : MonoBehaviour
 			{
 				ParentKatamari.DestroyAttached(this);
 			}
-			Destroy(this.gameObject);
+
+			if(gameObject.tag == "Player")
+			{
+				ParentKatamari.ChangeState(PlayerState.Killed);
+			}
+			else
+			{
+				Destroy(this.gameObject);
+			}
+			
 		}
 		else
 		{

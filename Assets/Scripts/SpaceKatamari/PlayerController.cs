@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour
 	public PlayerKatamari Player;
 
 	public float MovementSpeed = 0.1f;
+	public float DeadMovementSpeed = 0.1f;
 
 	public float TractorSpeed = 10.0f;
 
@@ -32,7 +33,15 @@ public class PlayerController : MonoBehaviour
 		movement.z += Input.GetAxis("Vertical");
 		movement.x += Input.GetAxis("Horizontal");
 
-		movement *= MovementSpeed * Time.deltaTime;
+		if(Player.CurrentState == PlayerState.Existing)
+		{
+			movement *= MovementSpeed * Time.deltaTime;
+		}
+		else
+		{
+			movement *= DeadMovementSpeed * Time.deltaTime;
+		}
+		
 
 		Player.MasterRigidbody.velocity += movement;
 
@@ -114,6 +123,14 @@ public class PlayerController : MonoBehaviour
 		else
 		{
 			Player.MasterRigidbody.AddTorque(0, rotate * Player.MasterRigidbody.mass * Time.deltaTime, 0);
+		}
+
+		if(Player.CurrentState != PlayerState.Existing)
+		{
+			if(Input.GetButtonDown("Exist"))
+			{
+				Player.SpamExist();
+			}
 		}
 
 	}
