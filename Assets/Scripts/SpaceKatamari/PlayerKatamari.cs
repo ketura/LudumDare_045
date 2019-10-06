@@ -160,7 +160,8 @@ public class PlayerKatamari : MonoBehaviour
 			MasterRigidbody.velocity = totalMomentum / MasterRigidbody.mass;
 		}
 		MasterRigidbody.mass += otherMatter.Rigidbody.mass;
-		
+
+		MasterRigidbody.mass = Mathf.Min(MasterRigidbody.mass, 1);
 
 		CapturedObjects.Add(otherMatter);
 		var well = otherMatter.gameObject.AddComponent<GravityWell>();
@@ -197,9 +198,11 @@ public class PlayerKatamari : MonoBehaviour
 				continue;
 
 			Destroy(child.Node.GetComponent<GravityWell>());
-			Vector3 totalMomentum = MasterRigidbody.mass * MasterRigidbody.velocity;
+			//Vector3 totalMomentum = MasterRigidbody.mass * MasterRigidbody.velocity;
 			MasterRigidbody.mass -= child.Node.Rigidbody.mass;
-			MasterRigidbody.velocity = totalMomentum / MasterRigidbody.mass;
+			//MasterRigidbody.velocity = totalMomentum / MasterRigidbody.mass;
+
+			MasterRigidbody.mass = Mathf.Min(MasterRigidbody.mass, 1);
 
 			child.Node.DetachObject(node.Node.transform.position, 1.0f);
 

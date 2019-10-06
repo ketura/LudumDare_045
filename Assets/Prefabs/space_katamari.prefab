@@ -259,12 +259,16 @@ MonoBehaviour:
   MasterRigidbody: {fileID: 2264000376559420630}
   Well: {fileID: 8120971762238475322}
   Ship: {fileID: 0}
-  ConstantTorque: 0.1
+  Matter: {fileID: 0}
+  StartingHealth: 10
+  HealthDecrement: 1
+  ConstantTorque: 1
   MaxTorque: 50
   ChildGravitySize: 2
   ChildGravityStrengthMultiplier: 0.05
   CurrentState: 0
   SpamRequiredToExist: 10
+  MomentumCap: 50
 --- !u!54 &2264000376559420630
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -279,7 +283,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 4
+  m_Constraints: 84
   m_CollisionDetection: 3
 --- !u!114 &2264000376559420619
 MonoBehaviour:
@@ -299,8 +303,10 @@ MonoBehaviour:
   Active: 1
   Invincible: 0
   ExplosionMultiplier: 1
+  MomentumDamageMultiplier: 0.1
   Rigidbody: {fileID: 2264000376559420630}
-  Collider: {fileID: 2264000375430084413}
+  CaptureCollider: {fileID: 2264000375430084413}
+  PhysicsCollider: {fileID: 2264000376559420616}
 --- !u!135 &2264000376559420616
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -310,7 +316,7 @@ SphereCollider:
   m_GameObject: {fileID: 2264000376559420629}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
@@ -345,6 +351,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentTeam: 1
   Active: 1
+  DeathForce: 10
+  ModuleAnchor: {fileID: 0}
+  ChildModules: []
 --- !u!1 &8750084171344746823
 GameObject:
   m_ObjectHideFlags: 0
@@ -391,7 +400,7 @@ MonoBehaviour:
   MasterKatamari: {fileID: 2264000376559420628}
   Attracting: 1
   Tractoring: 0
-  GravityStrength: 50
-  TractorStrength: 100
+  GravityStrength: 30
+  TractorStrength: 70
   TractorSign: 1
   Range: 6
