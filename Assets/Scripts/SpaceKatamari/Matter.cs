@@ -10,7 +10,8 @@ public class Matter : MonoBehaviour
 
 	public int Mass = 10;
 	public bool Attached;
-    public bool Active = true;
+	public bool Active = true;
+	public float ExplosionMultiplier = 1.0f;
 
 	public Rigidbody Rigidbody;
 	public Collider Collider;
@@ -27,9 +28,7 @@ public class Matter : MonoBehaviour
   // Update is called once per frame
   void Update()
   {
-        if (Mass <= 0) {
-            Destroy(this.gameObject);
-        }
+        
   }
 
 	public virtual void CaptureObject(PlayerKatamari katamari)
@@ -55,6 +54,22 @@ public class Matter : MonoBehaviour
         Collider.isTrigger = true;
 	}
 
+	public virtual void DetachObject(Vector3 explosionPos, float explosionSize)
+	{
+		if (ParentKatamari == null)
+			return;
+
+		Attached = false;
+		transform.SetParent(null);
+
+		Rigidbody.isKinematic = false;
+		Rigidbody.AddExplosionForce(10.0f, explosionPos, explosionSize * ExplosionMultiplier);
+
+		Collider.isTrigger = false;
+
+		ParentKatamari = null;
+	}
+
 	public void OnTriggerEnter(Collider other)
 	{
 		Debug.Log("Matter Trigger Enter");
@@ -65,7 +80,23 @@ public class Matter : MonoBehaviour
 		if (otherMatter.Attached)
 			return;
 
-		ParentKatamari.OnMatterTouch(otherMatter);
+		if(ParentKatamari != null)
+		{
+			ParentKatamari.OnMatterTouch(otherMatter, this);
+		}
+		
+	}
+
+	public void Damage(int amount)
+	{
+		if (Mass <= 0)
+		{
+			if(ParentKatamari != null)
+			{
+				ParentKatamari.DestroyAttached(this);
+			}
+			Destroy(this.gameObject);
+		}
 	}
     
 }

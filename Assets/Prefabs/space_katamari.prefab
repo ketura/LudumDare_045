@@ -177,7 +177,8 @@ MonoBehaviour:
   CapturedObjects: []
   MasterRigidbody: {fileID: 2264000376559420630}
   Well: {fileID: 8120971762238475322}
-  ConstantTorque: 5
+  ConstantTorque: 1
+  MaxTorque: 50
   ChildGravitySize: 2
   ChildGravityStrengthMultiplier: 0.05
 --- !u!54 &2264000376559420630
@@ -209,7 +210,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ParentKatamari: {fileID: 2264000376559420628}
-  Mass: 0
+  Mass: 10
   Attached: 1
   Active: 1
   Rigidbody: {fileID: 2264000376559420630}
@@ -242,7 +243,7 @@ MonoBehaviour:
   Player: {fileID: 2264000376559420628}
   MovementSpeed: 20
   TractorSpeed: 10
-  RotateSpeed: 3
+  RotateSpeed: 5
 --- !u!114 &5725064493002611178
 MonoBehaviour:
   m_ObjectHideFlags: 0
