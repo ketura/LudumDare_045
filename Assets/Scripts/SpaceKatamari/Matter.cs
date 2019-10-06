@@ -20,8 +20,8 @@ public class Matter : MonoBehaviour
 	public Collider CaptureCollider;
 	public Collider PhysicsCollider;
 
-	// Start is called before the first frame update
-	void Start()
+    // Start is called before the first frame update
+    void Start()
   {
 		Rigidbody = GetComponent<Rigidbody>();
 
@@ -95,9 +95,6 @@ public class Matter : MonoBehaviour
 		Ship ship = other.GetComponentInParent<Ship>();
 		if (ship != null)
 		{
-			if (ParentKatamari.MasterRigidbody.velocity.magnitude < 2.0f)
-				return;
-
 			float momentum = (ParentKatamari.MasterRigidbody.mass * ParentKatamari.MasterRigidbody.velocity).magnitude * MomentumDamageMultiplier;
 			Debug.Log($"{gameObject.name} hitting {otherMatter.name} with momentum {momentum}");
 
@@ -131,23 +128,31 @@ public class Matter : MonoBehaviour
 			//Rigidbody.mass = Mass;
 		}
 	}
-	IEnumerator DamageBlink()
-	{
-		float blinktime = 0.1f;
-		Renderer renderer = CaptureCollider.gameObject.GetComponent<Renderer>();
-		if(renderer != null)
-		{
-			for (float t = 0; t < 4; t++)
-			{
-				renderer.enabled = !renderer.enabled;
-				yield return new WaitForSeconds(blinktime);
 
-			}
-			renderer.enabled = true;
-		}
-  }
+    IEnumerator DamageBlink()
+    {
+        float blinktime = 0.1f;
 
-	public void DestroyMatter(bool destroy = true)
+        Renderer[] childrenRenderers = gameObject.GetComponentsInChildren<Renderer>();
+        for (float t = 0; t < 4; t++)
+        {
+
+
+            foreach (Renderer r in childrenRenderers)
+            {
+                r.enabled = !r.enabled;
+            }
+            yield return new WaitForSeconds(blinktime);
+
+        }
+        CaptureCollider.GetComponent<Renderer>().enabled = true;
+        foreach (Renderer r in childrenRenderers)
+        {
+            r.enabled = true;
+        }
+    }
+
+    public void DestroyMatter(bool destroy = true)
 	{
 		if (gameObject.tag == "Player")
 		{
