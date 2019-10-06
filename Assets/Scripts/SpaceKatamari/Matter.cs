@@ -8,7 +8,7 @@ public class Matter : MonoBehaviour
 {
 	public PlayerKatamari ParentKatamari;
 
-	public int Mass;
+	public int Mass = 10;
 	public bool Attached;
     public bool Active = true;
 
@@ -46,7 +46,13 @@ public class Matter : MonoBehaviour
             ship.Active = false;
         }
 
-		Collider.isTrigger = true;
+        Weapon weapon = GetComponent<Weapon>();
+        if (weapon != null)
+        {
+            weapon.UpdateShip();
+        }
+
+        Collider.isTrigger = true;
 	}
 
 	public void OnTriggerEnter(Collider other)
