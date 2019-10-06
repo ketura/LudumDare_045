@@ -92,7 +92,8 @@ public class PlayerKatamari : MonoBehaviour
   }
 
 	public void OnMatterTouch(Matter otherMatter, Matter hitter)
-	{
+	{ 
+
 		if (otherMatter == null)
 			Debug.LogError("how the hell did we hit a null matter");
 
@@ -107,6 +108,11 @@ public class PlayerKatamari : MonoBehaviour
 		well.GravityStrength = ChildGravityStrengthMultiplier * otherMatter.Mass;
 
 		var node = Root.FindChild(hitter);
+		if (node == null && Root.Node == hitter)
+		{ 
+				node = Root;
+		}
+
 		if (node == null)
 			Debug.LogError("Somehow a null matter reported a hit??");
 

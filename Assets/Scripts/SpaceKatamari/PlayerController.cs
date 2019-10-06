@@ -89,7 +89,21 @@ public class PlayerController : MonoBehaviour
 			Player.Well.TractorSign = 1.0f;
 		}
 
-		float rotate = Input.GetAxis("Rotate") * RotateSpeed;
+
+
+		//if (Input.GetButtonDown("RotateLeft"))
+		//{
+		//	Camera.main.transform.Rotate(transform.up, 30, Space.World);
+		//}
+
+		//if (Input.GetButtonDown("RotateRight"))
+		//{
+		//	Camera.main.transform.Rotate(transform.up, -30, Space.World);
+		//}
+
+
+		float rotate = Input.GetAxisRaw("Rotate") * RotateSpeed;
+
 		if (rotate == 0)
 		{
 			if (Player.MasterRigidbody.angularVelocity.y < 2)
@@ -98,7 +112,7 @@ public class PlayerController : MonoBehaviour
 			}
 		}
 		else
-		{ 
+		{
 			Player.MasterRigidbody.AddTorque(0, rotate * Player.MasterRigidbody.mass * Time.deltaTime, 0);
 		}
 
