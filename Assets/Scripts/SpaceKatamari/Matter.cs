@@ -128,7 +128,7 @@ public class Matter : MonoBehaviour
 		}
 		else
 		{
-			Rigidbody.mass = Mass;
+			//Rigidbody.mass = Mass;
 		}
 	}
 	IEnumerator DamageBlink()

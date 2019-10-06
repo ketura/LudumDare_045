@@ -6,8 +6,8 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
 	public PlayerKatamari Player;
-    public float MovementSpeedBase = 0.1f;
-    public float MovementSpeed = 0.1f;
+  public float MovementSpeedBase = 0.1f;
+  public float MovementSpeed = 0.1f;
 	public float DeadMovementSpeed = 0.1f;
 
 	public float TractorSpeed = 10.0f;
@@ -33,15 +33,14 @@ public class PlayerController : MonoBehaviour
 		movement.z += Input.GetAxis("Vertical");
 		movement.x += Input.GetAxis("Horizontal");
 
-		if(Player.CurrentState == PlayerState.Existing)
+		if (Player.CurrentState == PlayerState.Existing)
 		{
 			movement *= MovementSpeed * Time.deltaTime;
 		}
 		else
 		{
 			movement *= DeadMovementSpeed * Time.deltaTime;
-		}
-		
+		}		
 
 		Player.MasterRigidbody.velocity += movement;
 
