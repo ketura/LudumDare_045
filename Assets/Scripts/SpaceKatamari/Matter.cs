@@ -20,8 +20,8 @@ public class Matter : MonoBehaviour
 	public Collider CaptureCollider;
 	public Collider PhysicsCollider;
 
-	// Start is called before the first frame update
-	void Start()
+    // Start is called before the first frame update
+    void Start()
   {
 		Rigidbody = GetComponent<Rigidbody>();
 
@@ -131,14 +131,24 @@ public class Matter : MonoBehaviour
     IEnumerator DamageBlink()
     {
         float blinktime = 0.1f;
-        Renderer mineRenderer = CaptureCollider.gameObject.GetComponent<Renderer>();
+      
+        Renderer[] childrenRenderers = gameObject.GetComponentsInChildren<Renderer>();
         for (float t = 0; t < 4; t++)
         {
-            CaptureCollider.GetComponent<Renderer>().enabled= !CaptureCollider.GetComponent<Renderer>().enabled;
+            
+
+            foreach (Renderer r in childrenRenderers)
+            {
+                r.enabled = !r.enabled;
+            } 
               yield return new WaitForSeconds(blinktime);
 
         }
         CaptureCollider.GetComponent<Renderer>().enabled = true;
+        foreach (Renderer r in childrenRenderers)
+        {
+            r.enabled = true;
+        }
     }
 
         public void DestroyMatter(bool destroy = true)

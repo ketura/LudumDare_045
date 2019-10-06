@@ -70,6 +70,7 @@ MonoBehaviour:
   Active: 1
   Invincible: 0
   ExplosionMultiplier: 1
+  MomentumDamageMultiplier: 0.05
   Rigidbody: {fileID: 8502846639145661149}
   CaptureCollider: {fileID: 8502846639592993959}
   PhysicsCollider: {fileID: 4989383875292278548}
@@ -86,7 +87,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxSize: 10
-  regen: 0.1
+  regen: 0.5
   damageAmount: 1
   EmitterBase: {fileID: 8502846639145661150}
   ShieldModel: {fileID: 8547616258764063044}
