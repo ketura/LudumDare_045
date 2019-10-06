@@ -22,6 +22,9 @@ public class AttachNode
 
 	public AttachNode FindChild(Matter node)
 	{
+		if (node == Node)
+			return this;
+
 		foreach(var child in Children)
 		{
 			if (child.Node == node)
@@ -48,21 +51,41 @@ public class AttachNode
 	}
 }
 
+public enum PlayerState
+{
+	Oblivion,
+	Existing,
+	Killed
+}
+
 [RequireComponent(typeof(Matter))]
+[RequireComponent(typeof(Ship))]
 public class PlayerKatamari : MonoBehaviour
 {
+	public GameObject ExistingModel;
+	public GameObject DeadModel;
+
 	public Transform CaptureAnchor;
 	public List<Matter> CapturedObjects;
 	public Rigidbody MasterRigidbody;
 	public AttachNode Root;
 
 	public GravityWell Well;
+	public Ship Ship;
+	public Matter Matter;
+
+	public int StartingHealth = 10;
+	public int HealthDecrement = 1;
 
 	public float ConstantTorque = 5.0f;
 	public float MaxTorque = 50.0f;
 
 	public float ChildGravitySize = 2.0f;
 	public float ChildGravityStrengthMultiplier = 0.05f;
+
+	public PlayerState CurrentState;
+	private int SpamCount;
+	public int SpamRequiredToExist = 10;
 
 
   // Start is called before the first frame update
@@ -78,10 +101,22 @@ public class PlayerKatamari : MonoBehaviour
 			Debug.LogError($"Forgot to set {nameof(Well)}!");
 
 		Well.MasterKatamari = this;
+		Ship = GetComponent<Ship>();
+		Matter = GetComponent<Matter>();
 
 		Root = new AttachNode(GetComponent<Matter>());
 
 		CapturedObjects = new List<Matter>();
+
+		CurrentState = PlayerState.Oblivion;
+
+		Well.enabled = false;
+		ExistingModel.SetActive(false);
+		DeadModel.SetActive(true);
+		Ship.currentTeam = Ship.Team.Neutral;
+		Ship.enabled = false;
+		GetComponent<SphereCollider>().enabled = false;
+		GetComponent<Matter>().enabled = false;
 	}
 
   // Update is called once per frame
@@ -119,14 +154,9 @@ public class PlayerKatamari : MonoBehaviour
 		node.AttachChild(otherMatter);
 	}
 
-	public void AttractObject(Matter matter)
-	{
-		
-	}
-
 	public void DestroyAttached(Matter matter)
 	{
-		if(!CapturedObjects.Contains(matter))
+		if(!CapturedObjects.Contains(matter) && Root.Node != matter)
 		{
 			Debug.LogError($"Katamari does not contain {matter.name}!");
 			return;
@@ -142,6 +172,56 @@ public class PlayerKatamari : MonoBehaviour
 			Vector3 totalMomentum = MasterRigidbody.mass * MasterRigidbody.velocity;
 			MasterRigidbody.mass -= child.Node.Rigidbody.mass;
 			MasterRigidbody.velocity = totalMomentum / MasterRigidbody.mass;
+		}
+	}
+
+	public void ChangeState(PlayerState newState)
+	{
+		switch (newState)
+		{
+			default:
+			case PlayerState.Oblivion:
+				Debug.LogError("Cannot transition into Oblivion state while the game is running!");
+				break;
+
+			case PlayerState.Existing:
+				SpamCount = 0;
+				Matter.Mass = StartingHealth;
+
+				Well.enabled = true;
+				ExistingModel.SetActive(true);
+				DeadModel.SetActive(false);
+				Ship.currentTeam = Ship.Team.Player;
+				Ship.enabled = true;
+				GetComponent<SphereCollider>().enabled = true;
+				GetComponent<Matter>().enabled = true;
+
+				break;
+
+			case PlayerState.Killed:
+				DestroyAttached(Root.Node);
+				GameController.Instance.ShowLossTutorial();
+				StartingHealth -= HealthDecrement;
+				StartingHealth = Mathf.Max(3, StartingHealth);
+
+				Well.enabled = false;
+				ExistingModel.SetActive(false);
+				DeadModel.SetActive(true);
+				Ship.currentTeam = Ship.Team.Neutral;					
+				Ship.enabled = false;
+				GetComponent<SphereCollider>().enabled = false;
+				GetComponent<Matter>().enabled = false;
+
+				break;
+		}
+	}
+
+	public void SpamExist()
+	{
+		SpamCount++;
+		if (CurrentState != PlayerState.Existing && SpamCount >= SpamRequiredToExist)
+		{
+			ChangeState(PlayerState.Existing);
 		}
 	}
 
