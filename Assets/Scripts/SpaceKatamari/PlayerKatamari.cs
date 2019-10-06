@@ -87,6 +87,8 @@ public class PlayerKatamari : MonoBehaviour
 	private int SpamCount;
 	public int SpamRequiredToExist = 10;
 
+	public float MomentumCap = 500.0f;
+
 
   // Start is called before the first frame update
   void Start()
@@ -127,15 +129,22 @@ public class PlayerKatamari : MonoBehaviour
   }
 
 	public void OnMatterTouch(Matter otherMatter, Matter hitter)
-	{ 
+	{
+		if (CurrentState != PlayerState.Existing)
+			return;
 
 		if (otherMatter == null)
 			Debug.LogError("how the hell did we hit a null matter");
 
 		otherMatter.CaptureObject(this);
-		Vector3 totalMomentum = (otherMatter.Rigidbody.mass * otherMatter.Rigidbody.velocity) + (MasterRigidbody.mass * MasterRigidbody.velocity);
+		Vector3 currentMomentum = MasterRigidbody.mass * MasterRigidbody.velocity;
+		Vector3 totalMomentum = otherMatter.Rigidbody.mass * otherMatter.Rigidbody.velocity + currentMomentum;
+		if(totalMomentum.magnitude < MomentumCap)
+		{
+			MasterRigidbody.velocity = totalMomentum / MasterRigidbody.mass;
+		}
 		MasterRigidbody.mass += otherMatter.Rigidbody.mass;
-		MasterRigidbody.velocity = totalMomentum / MasterRigidbody.mass;
+		
 
 		CapturedObjects.Add(otherMatter);
 		var well = otherMatter.gameObject.AddComponent<GravityWell>();
@@ -154,7 +163,7 @@ public class PlayerKatamari : MonoBehaviour
 		node.AttachChild(otherMatter);
 	}
 
-	public void DestroyAttached(Matter matter)
+	public void DestroyAttached(Matter matter, bool destroyMatter=true)
 	{
 		if(!CapturedObjects.Contains(matter) && Root.Node != matter)
 		{
@@ -168,15 +177,27 @@ public class PlayerKatamari : MonoBehaviour
 		var children = node.GetAllChildren();
 		foreach(var child in children)
 		{
+			if (child.Node.gameObject == null)
+				continue;
+
 			Destroy(child.Node.GetComponent<GravityWell>());
 			Vector3 totalMomentum = MasterRigidbody.mass * MasterRigidbody.velocity;
 			MasterRigidbody.mass -= child.Node.Rigidbody.mass;
 			MasterRigidbody.velocity = totalMomentum / MasterRigidbody.mass;
+
+			child.Node.DetachObject(node.Node.transform.position, 1.0f);
 		}
+
+		if(matter != Root.Node && destroyMatter)
+		{
+			node.Node.DestroyMatter();
+		}
+		
 	}
 
 	public void ChangeState(PlayerState newState)
 	{
+		CurrentState = newState;
 		switch (newState)
 		{
 			default:
