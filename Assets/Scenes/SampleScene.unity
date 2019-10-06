@@ -310,9 +310,7 @@ MonoBehaviour:
   Player: {fileID: 1204847597}
   CameraSpeed: 5
   CameraSmooth: 0.28
-  CameraTetherDistance: 10
   CameraOffset: {x: 0, y: 7, z: -5}
-  CameraY: 15
   Rigidbody: {fileID: 0}
 --- !u!114 &1204847597 stripped
 MonoBehaviour:

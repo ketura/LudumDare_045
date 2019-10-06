@@ -136,6 +136,8 @@ public class Spawner : MonoBehaviour
 	{
 		Gizmos.color = Color.red;
 
+		if (SpawnBands == null)
+			return;
 		foreach(float boundary in SpawnBands.Values)
 		{
 			Gizmos.DrawWireSphere(transform.position, boundary);
