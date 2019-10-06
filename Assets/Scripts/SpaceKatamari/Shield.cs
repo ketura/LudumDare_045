@@ -56,7 +56,7 @@ public class Shield : MonoBehaviour
     {
         Ship ship = transform.root.GetComponent<Ship>();
         //get the bullet component and read damage from that
-        if (bullet.gameObject.tag == "Bullet"&&bullet.gameObject.GetComponent<Bullet>().myTeam != ship.currentTeam)
+        if (bullet.gameObject.GetComponent<Bullet>() != null && bullet.gameObject.GetComponent<Bullet>().myTeam != ship.currentTeam)
 		{
 			Destroy(bullet.gameObject);
 			size -= bullet.Damage;
