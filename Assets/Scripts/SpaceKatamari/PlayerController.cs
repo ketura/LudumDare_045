@@ -6,8 +6,8 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
 	public PlayerKatamari Player;
-
-	public float MovementSpeed = 0.1f;
+    public float MovementSpeedBase = 0.1f;
+    public float MovementSpeed = 0.1f;
 	public float DeadMovementSpeed = 0.1f;
 
 	public float TractorSpeed = 10.0f;

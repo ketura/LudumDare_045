@@ -166,8 +166,9 @@ public class PlayerKatamari : MonoBehaviour
 		var well = otherMatter.gameObject.AddComponent<GravityWell>();
 		well.Range = ChildGravitySize;
 		well.GravityStrength = ChildGravityStrengthMultiplier * otherMatter.Mass;
+        UpdateSpeed();
 
-		var node = Root.FindChild(hitter);
+        var node = Root.FindChild(hitter);
 		if (node == null && Root.Node == hitter)
 		{ 
 				node = Root;
@@ -207,8 +208,9 @@ public class PlayerKatamari : MonoBehaviour
 		}
 
 		Root.RemoveReferencesToChild(node.Node);
+        UpdateSpeed();
 
-		if (matter != Root.Node && destroyMatter)
+        if (matter != Root.Node && destroyMatter)
 		{
 			node.Node.DestroyMatter();
 		}
@@ -259,6 +261,16 @@ public class PlayerKatamari : MonoBehaviour
 				break;
 		}
 	}
+    public void UpdateSpeed() {
+
+        Thruster[] thrusterlist = GetComponentsInChildren<Thruster>();
+        PlayerController pc = this.GetComponent<PlayerController>();
+        pc.MovementSpeed = pc.MovementSpeedBase;
+        foreach (Thruster t in thrusterlist)
+        {
+            pc.MovementSpeed += t.SpeedIncrease;
+        }
+    }
 
 	public void SpamExist()
 	{
@@ -273,4 +285,5 @@ public class PlayerKatamari : MonoBehaviour
 	{
 		return GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerKatamari>();
 	}
+
 }

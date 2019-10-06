@@ -6,6 +6,7 @@ public class Thruster : MonoBehaviour
 {
     public float Power = 0.5f;
     public float NozzleRotationSpeed = 360f;
+    public float SpeedIncrease=0.1f;
     public GameObject NozzleRotationBase;
     public ParticleSystem exaustParticleSystem;
 
