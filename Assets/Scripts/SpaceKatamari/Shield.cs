@@ -4,44 +4,61 @@ using UnityEngine;
 
 public class Shield : MonoBehaviour
 {
-    private float size = 0;
-    public float maxSize;
-    public float regen;
-    public float damageAmount;
-    public GameObject emitter;
+	private float size = 0;
+	public float maxSize;
+	public float regen;
+	public float damageAmount;
+	public Matter EmitterBase;
+	public GameObject ShieldModel;
 
-    // Start is called before the first frame update
-    void Start()
-    {
+	// Start is called before the first frame update
+	void Start()
+	{
+		if(EmitterBase == null)
+		{
+			EmitterBase = GetComponentInParent<Matter>();
+		}
+		
+	}
 
-    }
+// Update is called once per frame
+	void Update()
+	{
+		if (EmitterBase.Attached)
+		{
+			ShieldModel.SetActive(true);
+		}
+		else
+		{
+			ShieldModel.SetActive(false);
+			return;
+		}
+			
 
-    // Update is called once per frame
-    void Update()
-    {
-        if (emitter.GetComponent<Matter>().Attached && size < maxSize)
-        {
-            size += regen;
-        }
-        transform.localScale = new Vector3(size, size, size);
-        Collider[] hitColliders = Physics.OverlapSphere(this.transform.position, size/2);
-        foreach (Collider c in hitColliders)
-        {
-            OnBulletHit(c);
-        }
+		if (size < maxSize)
+		{
+			size += regen * Time.deltaTime;
+		}
 
+		ShieldModel.transform.localScale = new Vector3(size, size, size);
+		Collider[] hitColliders = Physics.OverlapSphere(this.transform.position, size/2);
+		foreach (Collider c in hitColliders)
+		{
+			var bullet = c.GetComponent<Bullet>();
+			if(bullet != null)
+			{
+				OnBulletHit(bullet);
+			} 
+		}
+	}
 
-    }
-
-
-
-    private void OnBulletHit(Collider other)
-    {
-        if (other.gameObject.tag == "Bullet")
-        {
-            Destroy(other.gameObject);
-            size -= damageAmount;
-
-        }
-    }
+	private void OnBulletHit(Bullet bullet)
+	{
+		//get the bullet component and read damage from that
+		if (bullet.gameObject.tag == "Bullet")
+		{
+			Destroy(bullet.gameObject);
+			size -= bullet.Damage;
+		}
+	}
 }

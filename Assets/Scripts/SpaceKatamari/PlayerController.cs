@@ -97,6 +97,7 @@ public class PlayerController : MonoBehaviour
 				Player.MasterRigidbody.AddTorque(0, Player.ConstantTorque * Player.MasterRigidbody.mass * Time.deltaTime, 0);
 			}
 		}
+		else
 		{ 
 			Player.MasterRigidbody.AddTorque(0, rotate * Player.MasterRigidbody.mass * Time.deltaTime, 0);
 		}
