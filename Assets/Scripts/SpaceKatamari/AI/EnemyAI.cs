@@ -11,12 +11,14 @@ public class EnemyAI : MonoBehaviour
     protected GameObject player = null;
     protected Rigidbody rigidBody;
     protected Ship myShip;
+    protected Thruster[] thrusters;
 
     // Start is called before the first frame update
     protected void Start()
     {
         rigidBody = GetComponent<Rigidbody>();
         myShip = GetComponent<Ship>();
+        thrusters = GetComponentsInChildren<Thruster>();
     }
 
     // Update is called once per frame
@@ -41,9 +43,31 @@ public class EnemyAI : MonoBehaviour
             }
 
             if (player != null)
+            {
                 Behave();
+                if (thrusters.Length > 0)
+                {
+                    if (rigidBody.velocity.magnitude > 0)
+                    {
+                        Quaternion thrusterRotation = Quaternion.LookRotation(rigidBody.velocity.normalized, Vector3.up);
+                        foreach (Thruster thruster in thrusters)
+                        {
+                            thruster.SetExaustSpeed(rigidBody.velocity.magnitude);
+                        }
+                    }
+                    else
+                    {
+                        foreach (Thruster thruster in thrusters)
+                        {
+                            thruster.TurnParticlesOff();
+                        }
+                    }
+                }
+            }
             else
+            {
                 rigidBody.velocity = Vector3.zero;
+            }
         }
     }
 
