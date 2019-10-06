@@ -107,8 +107,9 @@ public class Matter : MonoBehaviour
 			return;
 
 		Mass -= amount;
+        StartCoroutine(DamageBlink());
 
-		if (Mass <= 0)
+        if (Mass <= 0)
 		{
 			DestroyMatter();
 		}
@@ -117,8 +118,20 @@ public class Matter : MonoBehaviour
 			Rigidbody.mass = Mass;
 		}
 	}
+    IEnumerator DamageBlink()
+    {
+        float blinktime = 0.1f;
+        Renderer mineRenderer = CaptureCollider.gameObject.GetComponent<Renderer>();
+        for (float t = 0; t < 4; t++)
+        {
+            CaptureCollider.GetComponent<Renderer>().enabled= !CaptureCollider.GetComponent<Renderer>().enabled;
+              yield return new WaitForSeconds(blinktime);
 
-	public void DestroyMatter(bool destroy = true)
+        }
+        CaptureCollider.GetComponent<Renderer>().enabled = true;
+    }
+
+        public void DestroyMatter(bool destroy = true)
 	{
 		if (gameObject.tag == "Player")
 		{
