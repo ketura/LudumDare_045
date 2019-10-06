@@ -177,7 +177,7 @@ MonoBehaviour:
   CapturedObjects: []
   MasterRigidbody: {fileID: 2264000376559420630}
   Well: {fileID: 8120971762238475322}
-  ConstantTorque: 1
+  ConstantTorque: 0.1
   MaxTorque: 50
   ChildGravitySize: 2
   ChildGravityStrengthMultiplier: 0.05
@@ -213,6 +213,8 @@ MonoBehaviour:
   Mass: 10
   Attached: 1
   Active: 1
+  Invincible: 0
+  ExplosionMultiplier: 1
   Rigidbody: {fileID: 2264000376559420630}
   Collider: {fileID: 2264000375430084413}
 --- !u!135 &2264000376559420616

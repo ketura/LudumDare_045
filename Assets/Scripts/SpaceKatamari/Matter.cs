@@ -11,6 +11,7 @@ public class Matter : MonoBehaviour
 	public int Mass;
 	public bool Attached;
 	public bool Active = true;
+	public bool Invincible = false;
 	public float ExplosionMultiplier = 1.0f;
 
 	public Rigidbody Rigidbody;
@@ -28,7 +29,7 @@ public class Matter : MonoBehaviour
   // Update is called once per frame
   void Update()
   {
-        
+		
   }
 
 	public virtual void CaptureObject(PlayerKatamari katamari)
@@ -83,6 +84,11 @@ public class Matter : MonoBehaviour
 
 	public void Damage(int amount)
 	{
+		if (Invincible)
+			return;
+
+		Mass -= amount;
+
 		if (Mass <= 0)
 		{
 			if(ParentKatamari != null)
@@ -90,6 +96,10 @@ public class Matter : MonoBehaviour
 				ParentKatamari.DestroyAttached(this);
 			}
 			Destroy(this.gameObject);
+		}
+		else
+		{
+			Rigidbody.mass = Mass;
 		}
 	}
     

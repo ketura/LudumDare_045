@@ -33,13 +33,13 @@ public class Bullet : MonoBehaviour
 	void OnTriggerEnter(Collider other)
 	{
 			Ship ship = other.transform.root.GetComponent<Ship>();
-			Matter matter = other.gameObject.GetComponent<Matter>();
+			Matter matter = other.GetComponentInParent<Matter>();
 			if (matter != null)
 			{
-			
-					if (ship == null || ship.currentTeam == Ship.Team.Neutral || ship.currentTeam != myTeam)
+			matter.Damage(Damage);
+			if (ship == null || ship.currentTeam == Ship.Team.Neutral || ship.currentTeam != myTeam)
 					{
-				matter.Damage(Damage);
+				
 				Destroy(this.gameObject);
 							
 					}
