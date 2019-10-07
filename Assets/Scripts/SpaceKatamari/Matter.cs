@@ -146,7 +146,11 @@ public class Matter : MonoBehaviour
 
             foreach (Renderer r in childrenRenderers)
             {
-                r.enabled = !r.enabled;
+				if(r != null)
+				{
+					r.enabled = !r.enabled;
+				}
+                
             }
             yield return new WaitForSeconds(blinktime);
 

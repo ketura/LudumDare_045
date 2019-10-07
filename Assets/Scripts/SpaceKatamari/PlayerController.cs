@@ -35,7 +35,7 @@ public class PlayerController : MonoBehaviour
 
 		if (Player.CurrentState == PlayerState.Existing)
 		{
-			movement *= MovementSpeed * Time.deltaTime;
+ 			movement *= MovementSpeed * Time.deltaTime;
 		}
 		else
 		{
@@ -50,6 +50,8 @@ public class PlayerController : MonoBehaviour
 			float delta = 1 - (Map.WorldRadius / overshot);
 			var deltaVector = Vector3.Lerp(Player.transform.position, Map.transform.position, delta);
 			Player.MasterRigidbody.velocity -= (deltaVector * Time.deltaTime);
+
+			GameController.Instance.ShowBoundaryTutorial();
 		}
 
 
@@ -130,6 +132,18 @@ public class PlayerController : MonoBehaviour
 			{
 				Player.SpamExist();
 			}
+		}
+
+		if(Input.GetButtonDown("Help"))
+		{
+			Debug.Log("help");
+			GameController.Instance.ShowControlsTutorial();
+		}
+
+		if(Input.GetButtonDown("Suicide"))
+		{
+			Debug.Log("suiciding");
+			Player.ChangeState(PlayerState.Killed);
 		}
 
 	}

@@ -21,8 +21,15 @@ public class PlanetChunk : Matter
 
 	}
 
-	private void OnTriggerEnter(Collider other)
+	private new void OnTriggerEnter(Collider other)
 	{
+		if(Active)
+		{
+			DetectionCollider.enabled = false;
+			DetectionCollider.gameObject.SetActive(false);
+			base.OnTriggerEnter(other);
+		}
+
 		PlayerKatamari player = other.GetComponentInParent<PlayerKatamari>();
 		if (player == null)
 			return;
