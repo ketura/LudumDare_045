@@ -110,6 +110,6 @@ public class GameController : Singleton<GameController>
 
 	public void ShowBoundaryTutorial()
 	{
-		ShowText("There feels to be nothing here, and we did not exist to consume nothing!\n\nPerhaps that irritating light holds something to fill the void...", 5.0f);
+		ShowText("There feels to be nothing here, and we did not exist to consume nothing!\n\nMaybe there's something the other way.....", 5.0f);
 	}
 }
