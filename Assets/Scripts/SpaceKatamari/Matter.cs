@@ -135,32 +135,32 @@ public class Matter : MonoBehaviour
 		}
 	}
 
-    IEnumerator DamageBlink()
-    {
-        float blinktime = 0.1f;
+	IEnumerator DamageBlink()
+	{
+		float blinktime = 0.1f;
 
-        Renderer[] childrenRenderers = gameObject.GetComponentsInChildren<Renderer>();
-        for (float t = 0; t < 4; t++)
-        {
-
-
-            foreach (Renderer r in childrenRenderers)
-            {
+		Renderer[] childrenRenderers = gameObject.GetComponentsInChildren<Renderer>();
+		for (float t = 0; t < 4; t++)
+		{
+			foreach (Renderer r in childrenRenderers)
+			{
 				if(r != null)
 				{
 					r.enabled = !r.enabled;
 				}
                 
-            }
-            yield return new WaitForSeconds(blinktime);
+			}
+			yield return new WaitForSeconds(blinktime);
+		}
 
-        }
-
-        foreach (Renderer r in childrenRenderers)
-        {
-            r.enabled = true;
-        }
-    }
+		foreach (Renderer r in childrenRenderers)
+		{
+			if (r != null)
+			{
+				r.enabled = true;
+			}
+		}
+	}
 
     public void DestroyMatter(bool destroy = true)
 	{
