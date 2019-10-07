@@ -9,6 +9,8 @@ public class Bullet : MonoBehaviour
 	public float speed = 10f;
 	public int Damage = 1;
 
+	public AudioClip HitSound;
+
 	private float lifetimeTimer = 0f;
 
 	// Start is called before the first frame update
@@ -39,6 +41,7 @@ public class Bullet : MonoBehaviour
 			
 			if (ship == null || ship.currentTeam == Ship.Team.Neutral || ship.currentTeam != myTeam)
 					{
+								AudioManager.Instance.PlayClip(HitSound);
                 matter.Damage(Damage);
                 Destroy(this.gameObject);
 							

@@ -56,7 +56,7 @@ public class AudioManager : Singleton<AudioManager>
         audioSource.Play();
         childObject.transform.parent = transform;
 
-        if(!looping)
+        if(!looping && clip != null)
             Destroy(childObject, clip.length);
 
         return audioSource;

@@ -116,6 +116,8 @@ MonoBehaviour:
   Rigidbody: {fileID: 0}
   CaptureCollider: {fileID: 7876577750228968738}
   PhysicsCollider: {fileID: 7876577750228968738}
+  HitSound: {fileID: 8300000, guid: a7a1f90e2434c4d488331bf0e4910f1a, type: 3}
+  DeathSound: {fileID: 8300000, guid: 39146166dc9945d44a6a847444a666b5, type: 3}
 --- !u!54 &4695454893138324459
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -248,6 +250,8 @@ MonoBehaviour:
   Rigidbody: {fileID: 0}
   CaptureCollider: {fileID: 7557479287552386582}
   PhysicsCollider: {fileID: 7557479287552386582}
+  HitSound: {fileID: 8300000, guid: a7a1f90e2434c4d488331bf0e4910f1a, type: 3}
+  DeathSound: {fileID: 8300000, guid: 7982a34dc47821c4fbdc6b2d9a10f02b, type: 3}
 --- !u!54 &2798962623622100343
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -380,6 +384,8 @@ MonoBehaviour:
   Rigidbody: {fileID: 0}
   CaptureCollider: {fileID: 614516547291114513}
   PhysicsCollider: {fileID: 614516547291114513}
+  HitSound: {fileID: 8300000, guid: a7a1f90e2434c4d488331bf0e4910f1a, type: 3}
+  DeathSound: {fileID: 8300000, guid: 7982a34dc47821c4fbdc6b2d9a10f02b, type: 3}
 --- !u!54 &7907993062609399304
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -512,6 +518,8 @@ MonoBehaviour:
   Rigidbody: {fileID: 0}
   CaptureCollider: {fileID: 276754644940184884}
   PhysicsCollider: {fileID: 276754644940184884}
+  HitSound: {fileID: 8300000, guid: a7a1f90e2434c4d488331bf0e4910f1a, type: 3}
+  DeathSound: {fileID: 8300000, guid: 39146166dc9945d44a6a847444a666b5, type: 3}
 --- !u!54 &6096184130825775217
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -644,6 +652,8 @@ MonoBehaviour:
   Rigidbody: {fileID: 0}
   CaptureCollider: {fileID: 5598587505908883171}
   PhysicsCollider: {fileID: 5598587505908883171}
+  HitSound: {fileID: 8300000, guid: a7a1f90e2434c4d488331bf0e4910f1a, type: 3}
+  DeathSound: {fileID: 8300000, guid: 7982a34dc47821c4fbdc6b2d9a10f02b, type: 3}
 --- !u!54 &6531594011547876116
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -776,6 +786,8 @@ MonoBehaviour:
   Rigidbody: {fileID: 0}
   CaptureCollider: {fileID: 7525041106884532680}
   PhysicsCollider: {fileID: 7525041106884532680}
+  HitSound: {fileID: 8300000, guid: a7a1f90e2434c4d488331bf0e4910f1a, type: 3}
+  DeathSound: {fileID: 8300000, guid: 39146166dc9945d44a6a847444a666b5, type: 3}
 --- !u!54 &8800237652999315920
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -908,6 +920,8 @@ MonoBehaviour:
   Rigidbody: {fileID: 0}
   CaptureCollider: {fileID: 6994052884013348152}
   PhysicsCollider: {fileID: 6994052884013348152}
+  HitSound: {fileID: 8300000, guid: a7a1f90e2434c4d488331bf0e4910f1a, type: 3}
+  DeathSound: {fileID: 8300000, guid: 39146166dc9945d44a6a847444a666b5, type: 3}
 --- !u!54 &9003496864209563801
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1040,6 +1054,8 @@ MonoBehaviour:
   Rigidbody: {fileID: 0}
   CaptureCollider: {fileID: 1644577974090277261}
   PhysicsCollider: {fileID: 1644577974090277261}
+  HitSound: {fileID: 8300000, guid: a7a1f90e2434c4d488331bf0e4910f1a, type: 3}
+  DeathSound: {fileID: 8300000, guid: 7982a34dc47821c4fbdc6b2d9a10f02b, type: 3}
 --- !u!54 &1266013684461636171
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1072,6 +1088,7 @@ GameObject:
   - component: {fileID: 4236358528600509919}
   - component: {fileID: 4236358528600509916}
   - component: {fileID: 6851564859700342739}
+  - component: {fileID: 30951732170533625}
   m_Layer: 0
   m_Name: BigBoiEnemy
   m_TagString: Untagged
@@ -1205,7 +1222,9 @@ MonoBehaviour:
   MomentumDamageMultiplier: 0.05
   Rigidbody: {fileID: 0}
   CaptureCollider: {fileID: 4236358528600509913}
-  PhysicsCollider: {fileID: 0}
+  PhysicsCollider: {fileID: 30951732170533625}
+  HitSound: {fileID: 8300000, guid: a7a1f90e2434c4d488331bf0e4910f1a, type: 3}
+  DeathSound: {fileID: 8300000, guid: c3f40b82791e85c4b9bcbe605fc90be9, type: 3}
 --- !u!114 &4236358528600509916
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1223,6 +1242,9 @@ MonoBehaviour:
   DeathForce: 10
   ModuleAnchor: {fileID: 0}
   ChildModules: []
+  DeathSound: {fileID: 0}
+  HitSound: {fileID: 0}
+  LootTable: []
 --- !u!114 &6851564859700342739
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1241,6 +1263,19 @@ MonoBehaviour:
   HoverRange: 20
   acceleration: 0.3
   maxSpeed: 1.5
+--- !u!65 &30951732170533625
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4236358528600509906}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 0
+  serializedVersion: 2
+  m_Size: {x: 0.5, y: 0.5, z: 0.5}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &4553986603227103964
 GameObject:
   m_ObjectHideFlags: 0
@@ -1357,6 +1392,8 @@ MonoBehaviour:
   Rigidbody: {fileID: 0}
   CaptureCollider: {fileID: 8195118928009545769}
   PhysicsCollider: {fileID: 8195118928009545769}
+  HitSound: {fileID: 8300000, guid: a7a1f90e2434c4d488331bf0e4910f1a, type: 3}
+  DeathSound: {fileID: 8300000, guid: 7982a34dc47821c4fbdc6b2d9a10f02b, type: 3}
 --- !u!54 &2143777550784396867
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1489,6 +1526,8 @@ MonoBehaviour:
   Rigidbody: {fileID: 0}
   CaptureCollider: {fileID: 7399788477633665968}
   PhysicsCollider: {fileID: 7399788477633665968}
+  HitSound: {fileID: 8300000, guid: a7a1f90e2434c4d488331bf0e4910f1a, type: 3}
+  DeathSound: {fileID: 8300000, guid: 7982a34dc47821c4fbdc6b2d9a10f02b, type: 3}
 --- !u!54 &4300148757651263965
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1621,6 +1660,8 @@ MonoBehaviour:
   Rigidbody: {fileID: 0}
   CaptureCollider: {fileID: 3413116428535968830}
   PhysicsCollider: {fileID: 3413116428535968830}
+  HitSound: {fileID: 8300000, guid: a7a1f90e2434c4d488331bf0e4910f1a, type: 3}
+  DeathSound: {fileID: 8300000, guid: 7982a34dc47821c4fbdc6b2d9a10f02b, type: 3}
 --- !u!54 &360627122615168687
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1753,6 +1794,8 @@ MonoBehaviour:
   Rigidbody: {fileID: 0}
   CaptureCollider: {fileID: 3120652695559030569}
   PhysicsCollider: {fileID: 3120652695559030569}
+  HitSound: {fileID: 8300000, guid: a7a1f90e2434c4d488331bf0e4910f1a, type: 3}
+  DeathSound: {fileID: 8300000, guid: 39146166dc9945d44a6a847444a666b5, type: 3}
 --- !u!54 &5529872505312779023
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1886,6 +1929,8 @@ MonoBehaviour:
   Rigidbody: {fileID: 0}
   CaptureCollider: {fileID: 664036128450990584}
   PhysicsCollider: {fileID: 664036128450990584}
+  HitSound: {fileID: 8300000, guid: a7a1f90e2434c4d488331bf0e4910f1a, type: 3}
+  DeathSound: {fileID: 8300000, guid: cf249c20ac2447347893a3e2db51b270, type: 3}
 --- !u!54 &3976660722329006015
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1984,6 +2029,16 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 5838735361166523164, guid: d6b355686da2087439d7e976e5737af5,
+        type: 3}
+      propertyPath: HitSound
+      value: 
+      objectReference: {fileID: 8300000, guid: a7a1f90e2434c4d488331bf0e4910f1a, type: 3}
+    - target: {fileID: 5838735361166523164, guid: d6b355686da2087439d7e976e5737af5,
+        type: 3}
+      propertyPath: DeathSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 7982a34dc47821c4fbdc6b2d9a10f02b, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d6b355686da2087439d7e976e5737af5, type: 3}
 --- !u!4 &233665994643186475 stripped
@@ -2074,6 +2129,16 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 5838735361166523164, guid: d6b355686da2087439d7e976e5737af5,
+        type: 3}
+      propertyPath: HitSound
+      value: 
+      objectReference: {fileID: 8300000, guid: a7a1f90e2434c4d488331bf0e4910f1a, type: 3}
+    - target: {fileID: 5838735361166523164, guid: d6b355686da2087439d7e976e5737af5,
+        type: 3}
+      propertyPath: DeathSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 7982a34dc47821c4fbdc6b2d9a10f02b, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d6b355686da2087439d7e976e5737af5, type: 3}
 --- !u!4 &116545112098264361 stripped
@@ -2164,6 +2229,16 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 1678338968612169031, guid: 5db2ec24828c6cc4c9116cdc1dbdf020,
+        type: 3}
+      propertyPath: HitSound
+      value: 
+      objectReference: {fileID: 8300000, guid: a7a1f90e2434c4d488331bf0e4910f1a, type: 3}
+    - target: {fileID: 1678338968612169031, guid: 5db2ec24828c6cc4c9116cdc1dbdf020,
+        type: 3}
+      propertyPath: DeathSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 7982a34dc47821c4fbdc6b2d9a10f02b, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5db2ec24828c6cc4c9116cdc1dbdf020, type: 3}
 --- !u!4 &8131273000041852208 stripped

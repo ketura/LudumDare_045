@@ -20,6 +20,9 @@ public class Matter : MonoBehaviour
 	public Collider CaptureCollider;
 	public Collider PhysicsCollider;
 
+	public AudioClip HitSound;
+	public AudioClip DeathSound;
+
     // Start is called before the first frame update
     void Start()
   {
@@ -131,6 +134,7 @@ public class Matter : MonoBehaviour
 		}
 		else
 		{
+			AudioManager.Instance.PlayClip(HitSound);
 			//Rigidbody.mass = Mass;
 		}
 	}
@@ -164,6 +168,7 @@ public class Matter : MonoBehaviour
 
     public void DestroyMatter(bool destroy = true)
 	{
+		AudioManager.Instance.PlayClip(DeathSound);
 		if (gameObject.tag == "Player")
 		{
 			ParentKatamari.ChangeState(PlayerState.Killed);

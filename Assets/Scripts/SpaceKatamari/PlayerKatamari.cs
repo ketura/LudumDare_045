@@ -176,12 +176,12 @@ public class PlayerKatamari : MonoBehaviour
 			Debug.LogError("how the hell did we hit a null matter");
 
 		otherMatter.CaptureObject(this);
-		Vector3 currentMomentum = MasterRigidbody.mass * MasterRigidbody.velocity;
-		Vector3 totalMomentum = otherMatter.Rigidbody.mass * otherMatter.Rigidbody.velocity + currentMomentum;
-		if(totalMomentum.magnitude < MomentumCap)
-		{
-			MasterRigidbody.velocity = totalMomentum / MasterRigidbody.mass;
-		}
+		//Vector3 currentMomentum = MasterRigidbody.mass * MasterRigidbody.velocity;
+		//Vector3 totalMomentum = otherMatter.Rigidbody.mass * otherMatter.Rigidbody.velocity + currentMomentum;
+		//if(totalMomentum.magnitude < MomentumCap)
+		//{
+		//	MasterRigidbody.velocity = totalMomentum / MasterRigidbody.mass;
+		//}
 		MasterRigidbody.mass += otherMatter.Rigidbody.mass;
 
 		if (MasterRigidbody.mass < 1)

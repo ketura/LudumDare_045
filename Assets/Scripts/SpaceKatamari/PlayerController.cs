@@ -116,10 +116,10 @@ public class PlayerController : MonoBehaviour
 
 		if (rotate == 0)
 		{
-			if (Player.MasterRigidbody.angularVelocity.y < 0.05f)
-			{
-				Player.MasterRigidbody.AddTorque(0, Player.ConstantTorque * Player.MasterRigidbody.mass * Time.deltaTime, 0);
-			}
+			//if (Player.MasterRigidbody.angularVelocity.y < 0.05f)
+			//{
+			//	Player.MasterRigidbody.AddTorque(0, Player.ConstantTorque * Player.MasterRigidbody.mass * Time.deltaTime, 0);
+			//}
 		}
 		else
 		{
