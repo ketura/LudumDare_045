@@ -84,12 +84,14 @@ public class Matter : MonoBehaviour
 
 	public void OnTriggerEnter(Collider other)
 	{
+		if (!Active || ParentKatamari == null)
+			return;
 		//Debug.Log("Matter Trigger Enter");
 		Matter otherMatter = other.GetComponentInParent<Matter>();
-		if (otherMatter == null)
+		if (otherMatter == null || other.isTrigger)
 			return;
 
-		if (otherMatter.Attached)
+		if (otherMatter.Attached || !otherMatter.Active)
 			return;
 
 		Ship ship = other.GetComponentInParent<Ship>();
@@ -117,9 +119,13 @@ public class Matter : MonoBehaviour
 			return;
 
 		Mass -= amount;
-        StartCoroutine(DamageBlink());
+		if(!Invincible)
+		{
+			StartCoroutine(DamageBlink());
+		}
+		
 
-        if (Mass <= 0)
+		if (Mass <= 0)
 		{
 			DestroyMatter();
 		}
@@ -145,7 +151,7 @@ public class Matter : MonoBehaviour
             yield return new WaitForSeconds(blinktime);
 
         }
-        CaptureCollider.GetComponent<Renderer>().enabled = true;
+
         foreach (Renderer r in childrenRenderers)
         {
             r.enabled = true;
