@@ -39,6 +39,8 @@ public class GameController : Singleton<GameController>
 		Text.CrossFadeAlpha(0, 0, true);
 
 		AudioListener.volume = Volume;
+
+		ShowExistTutorial();
 	}
 
   // Update is called once per frame

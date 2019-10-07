@@ -175,6 +175,8 @@ public class PlayerKatamari : MonoBehaviour
             float scale = Mathf.Lerp(DeadModel.transform.localScale.x, deadModelTargetScale, 2*Time.deltaTime);
             DeadModel.transform.localScale = new Vector3(scale, scale, scale);
         }
+
+		transform.position = new Vector3(transform.position.x, 1.5f, transform.position.z);
   }
 
 	public void OnMatterTouch(Matter otherMatter, Matter hitter)

@@ -2135,6 +2135,10 @@ PrefabInstance:
       propertyPath: m_Color.b
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 117019340, guid: 79fbefc169e5bae4d9b5522a31fe7b53, type: 3}
+      propertyPath: MassThreshold
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 770265802, guid: 79fbefc169e5bae4d9b5522a31fe7b53, type: 3}
       propertyPath: m_RootOrder
       value: 1

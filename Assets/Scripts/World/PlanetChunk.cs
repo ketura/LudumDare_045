@@ -52,6 +52,6 @@ public class PlanetChunk : Matter
 		DetectionCollider.enabled = false;
 		DetectionCollider.gameObject.SetActive(false);
 
-		GameController.Instance.ShowText("What opulence!  The cataclysmic terror really brings out the flavor of halted civilization.", 3.0f);
+		GameController.Instance.ShowText("What opulence!  The cataclysmic terror really brings out the flavor of halted civilization.\n\nRUN LITTLE SHIPS, WE HAVE YOUR HOME.\n\n(press esc to restart when finished)", 3.0f);
 	}
 }
