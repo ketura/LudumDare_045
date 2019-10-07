@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.3731193, g: 0.38073996, b: 0.35872698, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2357,6 +2357,21 @@ PrefabInstance:
       propertyPath: Player
       value: 
       objectReference: {fileID: 1204847597}
+    - target: {fileID: 1535240551420967290, guid: e6fb2ef4861b3944cab796fe2c94f3ee,
+        type: 3}
+      propertyPath: minY
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1535240551420967290, guid: e6fb2ef4861b3944cab796fe2c94f3ee,
+        type: 3}
+      propertyPath: maxY
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 1535240551420967290, guid: e6fb2ef4861b3944cab796fe2c94f3ee,
+        type: 3}
+      propertyPath: mouseSpeed
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e6fb2ef4861b3944cab796fe2c94f3ee, type: 3}
 --- !u!1001 &2189730735563173181
@@ -2584,6 +2599,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: GUICamera
       objectReference: {fileID: 0}
+    - target: {fileID: 1895037706, guid: 7d8fb8e8629c1754d90166afaa15a86d, type: 3}
+      propertyPath: m_fontSizeMax
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 1895037706, guid: 7d8fb8e8629c1754d90166afaa15a86d, type: 3}
+      propertyPath: m_fontSize
+      value: 30
+      objectReference: {fileID: 0}
     - target: {fileID: 8289795368086150530, guid: 7d8fb8e8629c1754d90166afaa15a86d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2638,14 +2661,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1895037706, guid: 7d8fb8e8629c1754d90166afaa15a86d, type: 3}
-      propertyPath: m_fontSizeMax
-      value: 30
-      objectReference: {fileID: 0}
-    - target: {fileID: 1895037706, guid: 7d8fb8e8629c1754d90166afaa15a86d, type: 3}
-      propertyPath: m_fontSize
-      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 5935844113846098434, guid: 7d8fb8e8629c1754d90166afaa15a86d,
         type: 3}
