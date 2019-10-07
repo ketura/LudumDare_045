@@ -1391,7 +1391,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1786433721, guid: 0166d86294be3354b93859a39be0da11, type: 3}
       propertyPath: Bands.Array.data[1].Entities.Array.size
-      value: 7
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 1786433721, guid: 0166d86294be3354b93859a39be0da11, type: 3}
       propertyPath: Bands.Array.data[0].Entities.Array.size
@@ -1634,6 +1634,15 @@ PrefabInstance:
     - target: {fileID: 1786433721, guid: 0166d86294be3354b93859a39be0da11, type: 3}
       propertyPath: Bands.Array.data[3].Entities.Array.data[5].SpawnChance
       value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 1786433721, guid: 0166d86294be3354b93859a39be0da11, type: 3}
+      propertyPath: Bands.Array.data[1].Entities.Array.data[7].PrefabToSpawn
+      value: 
+      objectReference: {fileID: 5571120127926019351, guid: b202c08a3cc815e4eadf79c33df9b70b,
+        type: 3}
+    - target: {fileID: 1786433721, guid: 0166d86294be3354b93859a39be0da11, type: 3}
+      propertyPath: Bands.Array.data[1].Entities.Array.data[7].SpawnChance
+      value: 15
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0166d86294be3354b93859a39be0da11, type: 3}

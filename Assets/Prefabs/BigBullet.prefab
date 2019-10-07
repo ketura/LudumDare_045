@@ -125,8 +125,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lifetime: 5
   myTeam: 0
-  speed: 20
-  Damage: 5
+  speed: 50
+  Damage: 10
   Piercing: 0
   HitSound: {fileID: 0}
 --- !u!135 &5170347989770819084

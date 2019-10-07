@@ -132,6 +132,8 @@ MonoBehaviour:
   Rigidbody: {fileID: 3873693775160778438}
   CaptureCollider: {fileID: 3481446840646096440}
   PhysicsCollider: {fileID: 3481446840646096440}
+  HitSound: {fileID: 0}
+  DeathSound: {fileID: 0}
 --- !u!1 &5571120127926019351
 GameObject:
   m_ObjectHideFlags: 0
@@ -253,6 +255,8 @@ MonoBehaviour:
   Rigidbody: {fileID: 0}
   CaptureCollider: {fileID: 5571120127926019356}
   PhysicsCollider: {fileID: 5571120127926019356}
+  HitSound: {fileID: 0}
+  DeathSound: {fileID: 0}
 --- !u!54 &5571120127926019346
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -286,6 +290,11 @@ MonoBehaviour:
   DeathForce: 10
   ModuleAnchor: {fileID: 0}
   ChildModules: []
+  DeathSound: {fileID: 0}
+  HitSound: {fileID: 0}
+  LootTable:
+  - {fileID: 8750480303913207780, guid: 296d24ffb73e0d445b4da5d263845484, type: 3}
+  - {fileID: 3452723128775455434, guid: 085d16572cf4f684c912ad95cf58af7f, type: 3}
 --- !u!114 &8379921654290744408
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -436,6 +445,8 @@ MonoBehaviour:
   Rigidbody: {fileID: 5571120128922692958}
   CaptureCollider: {fileID: 5571120128922692952}
   PhysicsCollider: {fileID: 5571120128922692952}
+  HitSound: {fileID: 0}
+  DeathSound: {fileID: 0}
 --- !u!1001 &2915618134235471007
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -443,11 +454,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5571120127926019359}
     m_Modifications:
-    - target: {fileID: 1634078198350810188, guid: 157cf82ba9ce1494b8fcda2292631d9a,
-        type: 3}
-      propertyPath: m_Name
-      value: MineTurret
-      objectReference: {fileID: 0}
     - target: {fileID: 7986486079662816528, guid: 157cf82ba9ce1494b8fcda2292631d9a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -502,6 +508,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1634078198350810188, guid: 157cf82ba9ce1494b8fcda2292631d9a,
+        type: 3}
+      propertyPath: m_Name
+      value: MineTurret
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 157cf82ba9ce1494b8fcda2292631d9a, type: 3}

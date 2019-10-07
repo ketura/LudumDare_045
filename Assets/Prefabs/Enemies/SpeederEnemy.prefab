@@ -451,7 +451,11 @@ MonoBehaviour:
   ChildModules: []
   DeathSound: {fileID: 0}
   HitSound: {fileID: 0}
-  LootTable: []
+  LootTable:
+  - {fileID: 303025537702600276, guid: 5db2ec24828c6cc4c9116cdc1dbdf020, type: 3}
+  - {fileID: 3452723128775455434, guid: 085d16572cf4f684c912ad95cf58af7f, type: 3}
+  - {fileID: 303025537702600276, guid: 5db2ec24828c6cc4c9116cdc1dbdf020, type: 3}
+  - {fileID: 3452723128775455434, guid: 085d16572cf4f684c912ad95cf58af7f, type: 3}
 --- !u!1 &6628509570214593520
 GameObject:
   m_ObjectHideFlags: 0

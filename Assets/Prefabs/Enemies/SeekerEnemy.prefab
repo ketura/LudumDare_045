@@ -176,7 +176,9 @@ MonoBehaviour:
   ChildModules: []
   DeathSound: {fileID: 0}
   HitSound: {fileID: 0}
-  LootTable: []
+  LootTable:
+  - {fileID: 3452723128775455434, guid: 085d16572cf4f684c912ad95cf58af7f, type: 3}
+  - {fileID: 1634078198350810188, guid: d6b355686da2087439d7e976e5737af5, type: 3}
 --- !u!1 &5571120128922692956
 GameObject:
   m_ObjectHideFlags: 0
