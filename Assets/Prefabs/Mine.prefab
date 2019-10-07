@@ -210,6 +210,8 @@ MonoBehaviour:
   Rigidbody: {fileID: 8750480303913207782}
   CaptureCollider: {fileID: 8750480302104791170}
   PhysicsCollider: {fileID: 441812339471975424}
+  HitSound: {fileID: 8300000, guid: a7a1f90e2434c4d488331bf0e4910f1a, type: 3}
+  DeathSound: {fileID: 8300000, guid: e73a80f4283c764478ad4626e1a63ea2, type: 3}
   timer: 5
   explosionRadius: 3
   damage: 10

@@ -105,6 +105,9 @@ public class PlayerKatamari : MonoBehaviour
 
 	public float MomentumCap = 500.0f;
 
+	public Vector3 VelocityReadout;
+	public Vector3 AngularVelocityReadout;
+
     private Rigidbody rigidBody;
     private Thruster[] thrusterList = new Thruster[0];
 
@@ -165,6 +168,8 @@ public class PlayerKatamari : MonoBehaviour
             }
         }
 
+		VelocityReadout = MasterRigidbody.velocity;
+		AngularVelocityReadout = MasterRigidbody.angularVelocity;
   }
 
 	public void OnMatterTouch(Matter otherMatter, Matter hitter)

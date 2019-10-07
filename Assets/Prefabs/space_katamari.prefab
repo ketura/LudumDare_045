@@ -5061,6 +5061,8 @@ MonoBehaviour:
   Rigidbody: {fileID: 2264000376559420630}
   CaptureCollider: {fileID: 2264000375430084413}
   PhysicsCollider: {fileID: 2264000376559420616}
+  HitSound: {fileID: 8300000, guid: 0c3c3224cbfc3f04ab6642ec72a94af2, type: 3}
+  DeathSound: {fileID: 8300000, guid: 032149ed0850b924ba82bfa7c21492ec, type: 3}
 --- !u!135 &2264000376559420616
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -5109,6 +5111,9 @@ MonoBehaviour:
   DeathForce: 10
   ModuleAnchor: {fileID: 0}
   ChildModules: []
+  DeathSound: {fileID: 0}
+  HitSound: {fileID: 0}
+  LootTable: []
 --- !u!1 &8750084171344746823
 GameObject:
   m_ObjectHideFlags: 0

@@ -651,6 +651,8 @@ MonoBehaviour:
   Rigidbody: {fileID: 0}
   CaptureCollider: {fileID: 303025537702600279}
   PhysicsCollider: {fileID: 1800995379}
+  HitSound: {fileID: 8300000, guid: a7a1f90e2434c4d488331bf0e4910f1a, type: 3}
+  DeathSound: {fileID: 8300000, guid: c4995f2c947290a4b93c4bb5a727ea46, type: 3}
 --- !u!114 &303025537702600272
 MonoBehaviour:
   m_ObjectHideFlags: 0

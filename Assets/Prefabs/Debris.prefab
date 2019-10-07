@@ -160,9 +160,12 @@ MonoBehaviour:
   Active: 1
   Invincible: 0
   ExplosionMultiplier: 1
+  MomentumDamageMultiplier: 0.05
   Rigidbody: {fileID: 3452723128775455432}
   CaptureCollider: {fileID: 3452723127386209708}
   PhysicsCollider: {fileID: 8648081506288874143}
+  HitSound: {fileID: 8300000, guid: a7a1f90e2434c4d488331bf0e4910f1a, type: 3}
+  DeathSound: {fileID: 8300000, guid: a7a1f90e2434c4d488331bf0e4910f1a, type: 3}
 --- !u!1 &7553825735541323871
 GameObject:
   m_ObjectHideFlags: 0

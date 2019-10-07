@@ -4956,6 +4956,8 @@ MonoBehaviour:
   Rigidbody: {fileID: 3382722125984709417}
   CaptureCollider: {fileID: 740530614416046406}
   PhysicsCollider: {fileID: 4236358527931837067}
+  HitSound: {fileID: 8300000, guid: a7a1f90e2434c4d488331bf0e4910f1a, type: 3}
+  DeathSound: {fileID: 8300000, guid: 7982a34dc47821c4fbdc6b2d9a10f02b, type: 3}
 --- !u!114 &3083945178543786147
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4976,7 +4978,7 @@ MonoBehaviour:
   bulletType: {fileID: 8407026241064787674, guid: 2354f4900f10fe74c8d16ade39a711d7,
     type: 3}
   bulletSpawnPoint: {fileID: 1057385485066281279}
-  WeaponSound: {fileID: 8300000, guid: e1a6bba5a984616489b2c973db5293f7, type: 3}
+  audioSource: {fileID: 0}
   currentTarget: {fileID: 0}
   myShip: {fileID: 0}
 --- !u!136 &4236358527931837067
@@ -5092,6 +5094,8 @@ MonoBehaviour:
   Rigidbody: {fileID: 3382722126121913213}
   CaptureCollider: {fileID: 740530614287206674}
   PhysicsCollider: {fileID: 4236358527803136735}
+  HitSound: {fileID: 8300000, guid: a7a1f90e2434c4d488331bf0e4910f1a, type: 3}
+  DeathSound: {fileID: 8300000, guid: 7982a34dc47821c4fbdc6b2d9a10f02b, type: 3}
 --- !u!114 &3083945178404518135
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5112,7 +5116,7 @@ MonoBehaviour:
   bulletType: {fileID: 8407026241064787674, guid: 2354f4900f10fe74c8d16ade39a711d7,
     type: 3}
   bulletSpawnPoint: {fileID: 1057385485207490923}
-  WeaponSound: {fileID: 8300000, guid: e1a6bba5a984616489b2c973db5293f7, type: 3}
+  audioSource: {fileID: 0}
   currentTarget: {fileID: 0}
   myShip: {fileID: 0}
 --- !u!136 &4236358527803136735
@@ -5423,6 +5427,8 @@ MonoBehaviour:
   Rigidbody: {fileID: 0}
   CaptureCollider: {fileID: 4236358528600509913}
   PhysicsCollider: {fileID: 1370630809562571387}
+  HitSound: {fileID: 8300000, guid: a7a1f90e2434c4d488331bf0e4910f1a, type: 3}
+  DeathSound: {fileID: 8300000, guid: 39146166dc9945d44a6a847444a666b5, type: 3}
 --- !u!114 &4236358528600509916
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5440,6 +5446,9 @@ MonoBehaviour:
   DeathForce: 10
   ModuleAnchor: {fileID: 0}
   ChildModules: []
+  DeathSound: {fileID: 0}
+  HitSound: {fileID: 0}
+  LootTable: []
 --- !u!114 &6851564859700342739
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6268,6 +6277,8 @@ MonoBehaviour:
   Rigidbody: {fileID: 0}
   CaptureCollider: {fileID: 8528446310553686094}
   PhysicsCollider: {fileID: 8246003666753981482}
+  HitSound: {fileID: 8300000, guid: a7a1f90e2434c4d488331bf0e4910f1a, type: 3}
+  DeathSound: {fileID: 8300000, guid: 032149ed0850b924ba82bfa7c21492ec, type: 3}
 --- !u!114 &8528446310553686089
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6285,6 +6296,7 @@ MonoBehaviour:
   SpeedIncrease: 0.1
   NozzleRotationBase: {fileID: 8528446309617382336}
   exhaustParticleSystem: {fileID: 6326294267046744200}
+  audioSource: {fileID: 0}
 --- !u!136 &8246003666753981482
 CapsuleCollider:
   m_ObjectHideFlags: 0

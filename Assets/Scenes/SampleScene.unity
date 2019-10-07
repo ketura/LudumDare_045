@@ -1367,7 +1367,7 @@ PrefabInstance:
     - target: {fileID: 9118669166608968915, guid: 0166d86294be3354b93859a39be0da11,
         type: 3}
       propertyPath: WorldRadius
-      value: 250
+      value: 300
       objectReference: {fileID: 0}
     - target: {fileID: 1786433721, guid: 0166d86294be3354b93859a39be0da11, type: 3}
       propertyPath: Bands.Array.size
@@ -1857,6 +1857,56 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2264000376559420630, guid: 4c096915c404aba4ba442e8044ace64c,
+        type: 3}
+      propertyPath: m_Drag
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2264000376559420630, guid: 4c096915c404aba4ba442e8044ace64c,
+        type: 3}
+      propertyPath: m_Constraints
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2264000376559420630, guid: 4c096915c404aba4ba442e8044ace64c,
+        type: 3}
+      propertyPath: m_IsKinematic
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2264000376559420630, guid: 4c096915c404aba4ba442e8044ace64c,
+        type: 3}
+      propertyPath: m_Interpolate
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2264000376559420630, guid: 4c096915c404aba4ba442e8044ace64c,
+        type: 3}
+      propertyPath: m_CollisionDetection
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2264000376559420618, guid: 4c096915c404aba4ba442e8044ace64c,
+        type: 3}
+      propertyPath: MovementSpeedBase
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2264000376559420618, guid: 4c096915c404aba4ba442e8044ace64c,
+        type: 3}
+      propertyPath: MovementSpeed
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2264000376559420618, guid: 4c096915c404aba4ba442e8044ace64c,
+        type: 3}
+      propertyPath: DeadMovementSpeed
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 2264000376559420618, guid: 4c096915c404aba4ba442e8044ace64c,
+        type: 3}
+      propertyPath: TractorSpeed
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 2264000376559420618, guid: 4c096915c404aba4ba442e8044ace64c,
+        type: 3}
+      propertyPath: RotateSpeed
+      value: 50
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4c096915c404aba4ba442e8044ace64c, type: 3}
 --- !u!1001 &3412488250151348165
@@ -2323,6 +2373,7 @@ MonoBehaviour:
   GrowTrack: {fileID: 8300000, guid: bddefd4010620a04aa63c4d87397d927, type: 3}
   ChillTrack: {fileID: 8300000, guid: 7e0bbdb85a2b620498be7fe043fccac8, type: 3}
   IntenseTrack: {fileID: 8300000, guid: 75673c7264954854994298985de70e67, type: 3}
+  Coalesce: {fileID: 0}
 --- !u!82 &8189181812232671375
 AudioSource:
   m_ObjectHideFlags: 0

@@ -26,7 +26,7 @@ public class PlayerController : MonoBehaviour
   }
 
 	// Update is called once per frame
-	void Update()
+	void FixedUpdate()
 	{
 		Vector3 movement = Vector2.zero;
 
@@ -40,9 +40,12 @@ public class PlayerController : MonoBehaviour
 		else
 		{
 			movement *= DeadMovementSpeed * Time.deltaTime;
-		}		
+		}
+		Debug.Log($"Adding {movement} to velocity");
 
 		Player.MasterRigidbody.velocity += movement;
+
+		Debug.Log($"Velocity is now {Player.MasterRigidbody.velocity}.");
 
 		var overshot = Vector3.Distance(Player.transform.position, Map.transform.position);
 		if (overshot > Map.WorldRadius)
@@ -123,7 +126,8 @@ public class PlayerController : MonoBehaviour
 		}
 		else
 		{
-			Player.MasterRigidbody.AddTorque(0, rotate * Player.MasterRigidbody.mass * Time.deltaTime, 0);
+			//Player.MasterRigidbody.AddTorque(0, rotate * Player.MasterRigidbody.mass * Time.deltaTime, 0);
+			Player.transform.Rotate(0, rotate * Time.deltaTime, 0);
 		}
 
 		if(Player.CurrentState != PlayerState.Existing)
