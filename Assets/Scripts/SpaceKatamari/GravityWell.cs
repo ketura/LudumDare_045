@@ -18,13 +18,16 @@ public class GravityWell : MonoBehaviour
 	// Start is called before the first frame update
 	void Start()
   {
+
 	}
 
   // Update is called once per frame
   void Update()
   {
-		if (!Attracting)
-			return;
+        if (!Attracting)
+        {
+            return;
+        }      
 
 		Collider[] hits = Physics.OverlapSphere(this.transform.position, Range);
 
@@ -63,6 +66,8 @@ public class GravityWell : MonoBehaviour
 
 		var objects = FindObjectsOfType<Matter>();
 	}
+
+
 
 	private void OnDrawGizmos()
 	{

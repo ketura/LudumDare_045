@@ -8,6 +8,9 @@ public class Bullet : MonoBehaviour
 	public Ship.Team myTeam = Ship.Team.Neutral;
 	public float speed = 10f;
 	public int Damage = 1;
+    public bool Piercing = false;
+
+    private List<Matter> hitRecord = new List<Matter>();
 
 	public AudioClip HitSound;
 
@@ -34,18 +37,23 @@ public class Bullet : MonoBehaviour
 
 	void OnTriggerEnter(Collider other)
 	{
-			Ship ship = other.transform.root.GetComponent<Ship>();
-			Matter matter = other.GetComponentInParent<Matter>();
-			if (matter != null)
-			{
-			
-			if (ship == null || ship.currentTeam == Ship.Team.Neutral || ship.currentTeam != myTeam)
-					{
-								AudioManager.Instance.PlayClip(HitSound);
+		Ship ship = other.transform.root.GetComponent<Ship>();
+		Matter matter = other.GetComponentInParent<Matter>();
+		if (matter != null)
+		{		
+		    if (!hitRecord.Contains(matter) && (ship == null || ship.currentTeam == Ship.Team.Neutral || ship.currentTeam != myTeam))
+		    {
+			    AudioManager.Instance.PlayClip(HitSound);
                 matter.Damage(Damage);
-                Destroy(this.gameObject);
+
+                if (!Piercing)
+                {
+                    Destroy(this.gameObject);
+                }
 							
-					}
-			}
+		    }
+
+            hitRecord.Add(matter);
+        }
 	}
 }

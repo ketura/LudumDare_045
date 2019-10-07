@@ -14,6 +14,8 @@ public class PlayerController : MonoBehaviour
 
 	public float RotateSpeed = 3.0f;
 
+    public ParticleSystem TractorParticleSystem;
+
 
 	private Vector3 OriginalWellPosition = Vector3.zero;
 
@@ -81,11 +83,24 @@ public class PlayerController : MonoBehaviour
 			}
 
 			Player.Well.transform.position = Vector3.Lerp(Player.Well.transform.position, point, TractorSpeed * Time.deltaTime);
-		}
+
+            if (TractorParticleSystem != null)
+            {
+                TractorParticleSystem.transform.position = point;
+                if (Player.CurrentState == PlayerState.Existing && TractorParticleSystem.isStopped)
+                    TractorParticleSystem.Play();
+            }
+        }
 		else
 		{
 			Player.Well.transform.position = Vector3.Lerp(Player.Well.transform.position, Player.transform.position, TractorSpeed * Time.deltaTime);
-		}
+
+            if (TractorParticleSystem != null && TractorParticleSystem.isPlaying)
+            {
+                TractorParticleSystem.Clear();
+                TractorParticleSystem.Stop();               
+            }
+        }
 
 		if (Input.GetButtonUp("Tractor"))
 		{
