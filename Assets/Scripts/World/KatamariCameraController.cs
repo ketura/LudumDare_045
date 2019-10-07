@@ -34,7 +34,7 @@ public class KatamariCameraController : MonoBehaviour
   {
 		float interpolation = CameraSpeed * Time.deltaTime;
         float OffsetY = Mathf.Clamp(Input.GetAxis("Mouse ScrollWheel") * mouseSpeed + CameraOffset.y, minY, maxY);
-        CameraOffset += new Vector3(0, OffsetY, 0);
+        CameraOffset = new Vector3(CameraOffset.x, OffsetY, CameraOffset.z);
 
         Vector3 target = Player.transform.position + CameraOffset;
 		Camera.transform.position = Vector3.SmoothDamp(Camera.transform.position, target, ref velocity, CameraSmooth);
