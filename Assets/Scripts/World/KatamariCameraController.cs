@@ -12,9 +12,11 @@ public class KatamariCameraController : MonoBehaviour
 	public float CameraSmooth = 0.28f;
 
 	public Vector3 CameraOffset = new Vector3(0,7,-5);
-
+   
 	public Rigidbody Rigidbody;
-
+    public float minY;
+    public float maxY;
+    public float mouseSpeed;
 	private Camera Camera;
 	private Vector3 velocity = Vector3.zero;
 
@@ -31,10 +33,14 @@ public class KatamariCameraController : MonoBehaviour
   void FixedUpdate()
   {
 		float interpolation = CameraSpeed * Time.deltaTime;
+        float OffsetY = Mathf.Clamp(Input.GetAxis("Mouse ScrollWheel") * mouseSpeed + CameraOffset.y, minY, maxY);
+        CameraOffset = new Vector3(CameraOffset.x, OffsetY, CameraOffset.z);
 
-		Vector3 target = Player.transform.position + CameraOffset;
+        Vector3 target = Player.transform.position + CameraOffset;
 		Camera.transform.position = Vector3.SmoothDamp(Camera.transform.position, target, ref velocity, CameraSmooth);
-	}
+        
+
+    }
 }
 
 
