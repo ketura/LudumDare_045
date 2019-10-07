@@ -203,6 +203,7 @@ public class PlayerKatamari : MonoBehaviour
 		{
 			return;
 		}
+
 		var children = node.GetAllChildren();
 		foreach(var child in children)
 		{
