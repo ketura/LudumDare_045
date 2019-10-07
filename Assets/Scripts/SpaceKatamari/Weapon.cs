@@ -11,7 +11,7 @@ public class Weapon : MonoBehaviour
     public GameObject TurretHead;
     public GameObject bulletType;
     public GameObject bulletSpawnPoint;
-    public AudioClip WeaponSound;
+    public AudioSource audioSource;
 
     private float cooldownTimer = 0f;
     private float targetAcquisitionTimer = 0f;
@@ -116,8 +116,8 @@ public class Weapon : MonoBehaviour
         {
             bulletComponent.myTeam = myShip.currentTeam;
         }
-        
-        if (WeaponSound != null)
-            AudioManager.Instance.PlayClip(WeaponSound);
+
+        if (audioSource != null)
+            audioSource.Play();        
     }
 }

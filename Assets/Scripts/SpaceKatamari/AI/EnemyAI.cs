@@ -35,7 +35,7 @@ public class EnemyAI : MonoBehaviour
                 if (katamaris.Length > 0)
                 {
                     PlayerKatamari katamari = katamaris[0];
-                    if (Vector3.Distance(transform.position, katamari.transform.position) <= acquisitionRange)
+                    if (katamari.CurrentState == PlayerState.Existing  && Vector3.Distance(transform.position, katamari.transform.position) <= acquisitionRange)
                     {
                         player = katamari.gameObject;
                     }

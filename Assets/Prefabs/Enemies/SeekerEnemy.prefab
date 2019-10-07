@@ -114,9 +114,12 @@ MonoBehaviour:
   Mass: 10
   Attached: 0
   Active: 1
+  Invincible: 0
   ExplosionMultiplier: 1
+  MomentumDamageMultiplier: 0.05
   Rigidbody: {fileID: 0}
-  Collider: {fileID: 5571120127926019356}
+  CaptureCollider: {fileID: 5571120127926019356}
+  PhysicsCollider: {fileID: 5571120127926019356}
 --- !u!114 &7227999050135606996
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -134,6 +137,7 @@ MonoBehaviour:
   directionChangeInterval: 4
   acceleration: 2
   maxSpeed: 2
+  rotationSpeed: 90
   dir: {x: 0, y: 0, z: 0, w: 0}
 --- !u!54 &5571120127926019346
 Rigidbody:
@@ -165,6 +169,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentTeam: 2
   Active: 1
+  DeathForce: 10
+  ModuleAnchor: {fileID: 0}
+  ChildModules: []
 --- !u!1 &5571120128922692956
 GameObject:
   m_ObjectHideFlags: 0
@@ -291,9 +298,12 @@ MonoBehaviour:
   Mass: 10
   Attached: 0
   Active: 1
+  Invincible: 0
   ExplosionMultiplier: 1
-  Rigidbody: {fileID: 0}
-  Collider: {fileID: 5571120128922692952}
+  MomentumDamageMultiplier: 0.05
+  Rigidbody: {fileID: 5571120128922692958}
+  CaptureCollider: {fileID: 5571120128922692952}
+  PhysicsCollider: {fileID: 5571120128922692952}
 --- !u!1001 &5571120127087183060
 PrefabInstance:
   m_ObjectHideFlags: 0
