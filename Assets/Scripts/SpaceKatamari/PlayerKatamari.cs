@@ -346,8 +346,17 @@ public class PlayerKatamari : MonoBehaviour
 
         if (CurrentState != PlayerState.Existing && SpamCount >= SpamRequiredToExist)
 		{
-			ChangeState(PlayerState.Existing);            
-		}
+			ChangeState(PlayerState.Existing);
+
+            try
+            {
+                MusicManager.Instance.PlayCoalesce();
+            }
+            catch
+            {
+                Debug.LogError("No music manager detected!");
+            }
+        }
 	}
 
 	public static PlayerKatamari GetPlayer()

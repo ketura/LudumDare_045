@@ -65,10 +65,6 @@ public class EnemyAI : MonoBehaviour
                     }
                 }
             }
-            else
-            {
-                rigidBody.velocity = Vector3.zero;
-            }
         }
     }
 
