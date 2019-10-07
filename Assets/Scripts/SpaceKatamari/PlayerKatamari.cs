@@ -269,7 +269,14 @@ public class PlayerKatamari : MonoBehaviour
 				break;
 
 			case PlayerState.Existing:
-				GameController.Instance.ClearText();
+                try
+                {
+                    GameController.Instance.ClearText();
+                }
+                catch
+                {
+                    Debug.LogError("Game controller doesn't exist or something");
+                }
 
 				SpamCount = 0;
 				Matter.Mass = StartingHealth;
@@ -346,8 +353,17 @@ public class PlayerKatamari : MonoBehaviour
 
         if (CurrentState != PlayerState.Existing && SpamCount >= SpamRequiredToExist)
 		{
-			ChangeState(PlayerState.Existing);            
-		}
+			ChangeState(PlayerState.Existing);
+
+            try
+            {
+                MusicManager.Instance.PlayCoalesce();
+            }
+            catch
+            {
+                Debug.LogError("No music manager detected!");
+            }
+        }
 	}
 
 	public static PlayerKatamari GetPlayer()

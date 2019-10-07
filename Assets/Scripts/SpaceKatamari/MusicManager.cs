@@ -8,6 +8,7 @@ public class MusicManager : Utilities.Singleton<MusicManager>
     public AudioClip GrowTrack;
     public AudioClip ChillTrack;
     public AudioClip IntenseTrack;
+    public AudioClip Coalesce;
 
     private AudioClip nextTrack = null;
     private float nextTrackTimer = 0f;
@@ -77,5 +78,10 @@ public class MusicManager : Utilities.Singleton<MusicManager>
     public void PlayIntenseMusic()
     {
         PlayTrack(IntenseTrack);
+    }
+
+    public void PlayCoalesce()
+    {
+        AudioSource.PlayOneShot(Coalesce);
     }
 }
