@@ -113,6 +113,7 @@ public class PlayerKatamari : MonoBehaviour
 
     private float deadModelTargetScale = 1;
 
+    private float PlanetMassRequirement = 200f;
 
   // Start is called before the first frame update
   void Start()
@@ -145,6 +146,12 @@ public class PlayerKatamari : MonoBehaviour
 		GetComponent<Matter>().enabled = false;
 
         rigidBody = GetComponent<Rigidbody>();
+
+        PlanetChunk planetChunk = FindObjectOfType<PlanetChunk>();
+        if (planetChunk != null)
+        {
+            PlanetMassRequirement = planetChunk.MassThreshold;
+        }
 	}
 
   // Update is called once per frame
@@ -200,6 +207,18 @@ public class PlayerKatamari : MonoBehaviour
 		{
 			MasterRigidbody.mass = 1;
 		}
+
+        if (MasterRigidbody.mass >= PlanetMassRequirement)
+        {
+            try
+            {
+                MusicManager.Instance.PlayIntenseMusic();
+            }
+            catch
+            {
+                Debug.LogError("Music manager not found!");
+            }
+        }
 
 		CapturedObjects.Add(otherMatter);
 		var well = otherMatter.gameObject.AddComponent<GravityWell>();

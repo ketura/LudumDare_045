@@ -43,6 +43,15 @@ public class PlanetChunk : Matter
 			GameController.Instance.ShowText("What a wonderful planet!  We must absorb it, we must have it!", 7);
 			Active = true;
 		}
+
+        try
+        {
+            MusicManager.Instance.PlayIntenseMusic();
+        }
+        catch
+        {
+            Debug.LogError("No Music Manager foudn!");
+        }
 	}
 
 	public override void CaptureObject(PlayerKatamari katamari)
