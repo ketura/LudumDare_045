@@ -202,7 +202,11 @@ public class PlayerKatamari : MonoBehaviour
 		}
 
 		if (node == null)
+		{
 			Debug.LogError("Somehow a null matter reported a hit??");
+			return;
+		}
+			
 
 		node.AttachChild(otherMatter);
 	}
@@ -218,6 +222,11 @@ public class PlayerKatamari : MonoBehaviour
 		CapturedObjects.Remove(matter);
 
 		var node = Root.FindChild(matter);
+		if(node == null)
+		{
+			return;
+		}
+
 		var children = node.GetAllChildren();
 		foreach(var child in children)
 		{
@@ -260,6 +269,8 @@ public class PlayerKatamari : MonoBehaviour
 				break;
 
 			case PlayerState.Existing:
+				GameController.Instance.ClearText();
+
 				SpamCount = 0;
 				Matter.Mass = StartingHealth;
 

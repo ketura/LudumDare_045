@@ -21,8 +21,14 @@ public class PlanetChunk : Matter
 
 	}
 
-	private void OnTriggerEnter(Collider other)
+	private new void OnTriggerEnter(Collider other)
 	{
+		if(Active)
+		{
+			base.OnTriggerEnter(other);
+			return;
+		}
+
 		PlayerKatamari player = other.GetComponentInParent<PlayerKatamari>();
 		if (player == null)
 			return;
@@ -37,5 +43,15 @@ public class PlanetChunk : Matter
 			GameController.Instance.ShowText("What a wonderful planet!  We must absorb it, we must have it!", 7);
 			Active = true;
 		}
+	}
+
+	public override void CaptureObject(PlayerKatamari katamari)
+	{
+		base.CaptureObject(katamari);
+
+		DetectionCollider.enabled = false;
+		DetectionCollider.gameObject.SetActive(false);
+
+		GameController.Instance.ShowText("What opulence!  The cataclysmic terror really brings out the flavor of halted civilization.", 3.0f);
 	}
 }
