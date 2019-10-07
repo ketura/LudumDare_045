@@ -251,6 +251,7 @@ MonoBehaviour:
   Active: 1
   Invincible: 0
   ExplosionMultiplier: 1
+  MomentumDamageMultiplier: 0.05
   Rigidbody: {fileID: 1457836398520320922}
   CaptureCollider: {fileID: 3498299694202585589}
   PhysicsCollider: {fileID: 701403704}
@@ -274,6 +275,7 @@ MonoBehaviour:
   bulletType: {fileID: 8407026241064787674, guid: 2354f4900f10fe74c8d16ade39a711d7,
     type: 3}
   bulletSpawnPoint: {fileID: 3775713987448789388}
+  WeaponSound: {fileID: 8300000, guid: e1a6bba5a984616489b2c973db5293f7, type: 3}
   currentTarget: {fileID: 0}
   myShip: {fileID: 0}
 --- !u!136 &701403704
