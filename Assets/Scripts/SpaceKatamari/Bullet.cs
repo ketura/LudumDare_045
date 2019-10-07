@@ -36,11 +36,11 @@ public class Bullet : MonoBehaviour
 			Matter matter = other.GetComponentInParent<Matter>();
 			if (matter != null)
 			{
-			matter.Damage(Damage);
+			
 			if (ship == null || ship.currentTeam == Ship.Team.Neutral || ship.currentTeam != myTeam)
 					{
-				
-				Destroy(this.gameObject);
+                matter.Damage(Damage);
+                Destroy(this.gameObject);
 							
 					}
 			}

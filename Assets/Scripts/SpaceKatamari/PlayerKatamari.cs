@@ -105,6 +105,9 @@ public class PlayerKatamari : MonoBehaviour
 
 	public float MomentumCap = 500.0f;
 
+    private Rigidbody rigidBody;
+    private Thruster[] thrusterList = new Thruster[0];
+
 
   // Start is called before the first frame update
   void Start()
@@ -135,12 +138,32 @@ public class PlayerKatamari : MonoBehaviour
 		Ship.enabled = false;
 		GetComponent<SphereCollider>().enabled = false;
 		GetComponent<Matter>().enabled = false;
+
+        rigidBody = GetComponent<Rigidbody>();
 	}
 
   // Update is called once per frame
   void Update()
   {
-		
+        if (thrusterList.Length > 0)
+        {
+            if (rigidBody.velocity.magnitude > 0)
+            {
+                Quaternion thrusterRotation = Quaternion.LookRotation(rigidBody.velocity.normalized, Vector3.up);
+                foreach (Thruster thruster in thrusterList)
+                {
+                    thruster.SetExaustSpeed(rigidBody.velocity.magnitude);
+                    thruster.SetNozzleRotation(thrusterRotation);
+                }
+            }
+            else
+            {
+                foreach (Thruster thruster in thrusterList)
+                {
+                    thruster.TurnParticlesOff();
+                }
+            }
+        }
 
   }
 
@@ -248,7 +271,16 @@ public class PlayerKatamari : MonoBehaviour
 				GetComponent<SphereCollider>().enabled = true;
 				GetComponent<Matter>().enabled = true;
 
-				break;
+                try
+                {
+                    MusicManager.Instance.PlayChillMusic();
+                }
+                catch
+                {
+                    Debug.LogError("No music manager detected!");
+                }
+
+                break;
 
 			case PlayerState.Killed:
 				DestroyAttached(Root.Node);
@@ -264,18 +296,25 @@ public class PlayerKatamari : MonoBehaviour
 				GetComponent<SphereCollider>().enabled = false;
 				GetComponent<Matter>().enabled = false;
 
-                MusicManager.Instance.StopMusic();
+                try
+                {
+                    MusicManager.Instance.StopMusic();
+                }
+                catch
+                {
+                    Debug.LogError("No music manager detected!");
+                }
+                
 
 				break;
 		}
 	}
 	public void UpdateSpeed() 
 	{
-
-		Thruster[] thrusterlist = GetComponentsInChildren<Thruster>();
+		thrusterList = GetComponentsInChildren<Thruster>();
 		PlayerController pc = this.GetComponent<PlayerController>();
 		pc.MovementSpeed = pc.MovementSpeedBase;
-		foreach (Thruster t in thrusterlist)
+		foreach (Thruster t in thrusterList)
 		{
 			pc.MovementSpeed += t.SpeedIncrease;
 		}
@@ -284,11 +323,19 @@ public class PlayerKatamari : MonoBehaviour
 	public void SpamExist()
 	{
 		SpamCount++;
-        MusicManager.Instance.PlayGrowthMusic();
-		if (CurrentState != PlayerState.Existing && SpamCount >= SpamRequiredToExist)
+
+        try
+        {
+            MusicManager.Instance.PlayGrowthMusic();
+        }
+        catch
+        {
+            Debug.LogError("No music manager detected!");
+        }
+
+        if (CurrentState != PlayerState.Existing && SpamCount >= SpamRequiredToExist)
 		{
-			ChangeState(PlayerState.Existing);
-            MusicManager.Instance.PlayChillMusic();
+			ChangeState(PlayerState.Existing);            
 		}
 	}
 

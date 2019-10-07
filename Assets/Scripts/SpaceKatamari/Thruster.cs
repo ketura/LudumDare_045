@@ -9,6 +9,7 @@ public class Thruster : MonoBehaviour
     public float SpeedIncrease=0.1f;
     public GameObject NozzleRotationBase;
     public ParticleSystem exhaustParticleSystem;
+    public AudioSource audioSource;
 
     private Quaternion targetNozzleRotation;
     private ParticleSystem.MainModule exhaustParticleSystemMainModule;
@@ -25,6 +26,18 @@ public class Thruster : MonoBehaviour
         if (NozzleRotationBase.transform.rotation != targetNozzleRotation)
         {
             NozzleRotationBase.transform.rotation = Quaternion.RotateTowards(NozzleRotationBase.transform.rotation, targetNozzleRotation, NozzleRotationSpeed * Time.deltaTime);
+        }
+
+        if (audioSource != null)
+        {
+            if (exhaustParticleSystem.isPlaying && !audioSource.isPlaying)
+            {
+                audioSource.Play();
+            }
+            else if (!exhaustParticleSystem.isPlaying && audioSource.isPlaying)
+            {
+                audioSource.Stop();
+            }
         }
     }
 
