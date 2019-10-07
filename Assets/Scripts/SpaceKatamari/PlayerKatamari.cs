@@ -269,7 +269,14 @@ public class PlayerKatamari : MonoBehaviour
 				break;
 
 			case PlayerState.Existing:
-				GameController.Instance.ClearText();
+                try
+                {
+                    GameController.Instance.ClearText();
+                }
+                catch
+                {
+                    Debug.LogError("Game controller doesn't exist or something");
+                }
 
 				SpamCount = 0;
 				Matter.Mass = StartingHealth;

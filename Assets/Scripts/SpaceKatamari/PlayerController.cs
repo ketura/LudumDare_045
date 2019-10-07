@@ -134,22 +134,29 @@ public class PlayerController : MonoBehaviour
 			}
 		}
 
-		if(Input.GetButtonDown("Help"))
-		{
-			Debug.Log("help");
-			GameController.Instance.ShowControlsTutorial();
-		}
+        try
+        {
+            if (Input.GetButtonDown("Help"))
+            {
+                Debug.Log("help");
+                GameController.Instance.ShowControlsTutorial();
+            }
 
-		if(Input.GetButtonDown("Suicide"))
-		{
-			Debug.Log("suiciding");
-			Player.ChangeState(PlayerState.Killed);
-		}
+            if (Input.GetButtonDown("Suicide"))
+            {
+                Debug.Log("suiciding");
+                Player.ChangeState(PlayerState.Killed);
+            }
 
-		if(Input.GetButtonDown("Exit"))
-		{
-			SceneManager.LoadScene("MainMenu");
-		}
+            if (Input.GetButtonDown("Exit"))
+            {
+                SceneManager.LoadScene("MainMenu");
+            }
+        }
+        catch
+        {
+            //Debug.LogError("Inputs aren't set up and it's complaining about it...");
+        }
 
 	}
 

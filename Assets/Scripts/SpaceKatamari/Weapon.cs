@@ -116,6 +116,14 @@ public class Weapon : MonoBehaviour
         {
             bulletComponent.myTeam = myShip.currentTeam;
         }
+        else
+        {
+            Rigidbody bulletRigidBody = bullet.GetComponent<Rigidbody>();
+            if (bulletRigidBody != null)
+            {
+                bulletRigidBody.velocity = TurretHead.transform.rotation * new Vector3(0, 0, 2);
+            }
+        }
 
         if (audioSource != null)
             audioSource.Play();        

@@ -214,7 +214,7 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.6
+  m_Radius: 0.4
   m_Height: 3
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
@@ -269,7 +269,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   range: 50
-  cooldown: 4
+  cooldown: 10
   acquisitionInterval: 1
   rotationSpeed: 70
   TurretHead: {fileID: 7472215282823741196}
@@ -491,7 +491,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3775713987448789388}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: -2.6, z: 3}
+  m_LocalPosition: {x: 0, y: -2.6, z: 3.21}
   m_LocalScale: {x: 0.25, y: 0.50000024, z: 0.25000012}
   m_Children: []
   m_Father: {fileID: 2911918563410017049}
