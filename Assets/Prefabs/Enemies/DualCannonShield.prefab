@@ -177,6 +177,8 @@ MonoBehaviour:
   Rigidbody: {fileID: 1590589027289373707}
   CaptureCollider: {fileID: 1590589027289373704}
   PhysicsCollider: {fileID: 1590589027289373708}
+  HitSound: {fileID: 8300000, guid: a7a1f90e2434c4d488331bf0e4910f1a, type: 3}
+  DeathSound: {fileID: 8300000, guid: 7982a34dc47821c4fbdc6b2d9a10f02b, type: 3}
 --- !u!114 &1590589027289373709
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -197,7 +199,7 @@ MonoBehaviour:
   bulletType: {fileID: 8407026241064787674, guid: 2354f4900f10fe74c8d16ade39a711d7,
     type: 3}
   bulletSpawnPoint: {fileID: 1590589028382103348}
-  WeaponSound: {fileID: 8300000, guid: e1a6bba5a984616489b2c973db5293f7, type: 3}
+  audioSource: {fileID: 0}
   currentTarget: {fileID: 0}
   myShip: {fileID: 0}
 --- !u!136 &1590589027289373708
@@ -5616,6 +5618,8 @@ MonoBehaviour:
   Rigidbody: {fileID: 0}
   CaptureCollider: {fileID: 1590589028035626972}
   PhysicsCollider: {fileID: 1590589028035626944}
+  HitSound: {fileID: 8300000, guid: a7a1f90e2434c4d488331bf0e4910f1a, type: 3}
+  DeathSound: {fileID: 8300000, guid: 7982a34dc47821c4fbdc6b2d9a10f02b, type: 3}
 --- !u!114 &1590589028035626945
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5632,7 +5636,8 @@ MonoBehaviour:
   NozzleRotationSpeed: 360
   SpeedIncrease: 0.1
   NozzleRotationBase: {fileID: 1590589028268204948}
-  exaustParticleSystem: {fileID: 1590589027696891066}
+  exhaustParticleSystem: {fileID: 0}
+  audioSource: {fileID: 0}
 --- !u!136 &1590589028035626944
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -6166,6 +6171,7 @@ GameObject:
   - component: {fileID: 1590589028670415905}
   - component: {fileID: 1590589028670415904}
   - component: {fileID: 1590589028670415907}
+  - component: {fileID: 7315301323266463777}
   m_Layer: 0
   m_Name: DualCannonShield
   m_TagString: Untagged
@@ -6286,8 +6292,10 @@ MonoBehaviour:
   ExplosionMultiplier: 1
   MomentumDamageMultiplier: 0.05
   Rigidbody: {fileID: 0}
-  CaptureCollider: {fileID: 0}
-  PhysicsCollider: {fileID: 0}
+  CaptureCollider: {fileID: 1590589028670415935}
+  PhysicsCollider: {fileID: 7315301323266463777}
+  HitSound: {fileID: 8300000, guid: a7a1f90e2434c4d488331bf0e4910f1a, type: 3}
+  DeathSound: {fileID: 8300000, guid: 670e25e068c89bb458ffc0654b22ce49, type: 3}
 --- !u!114 &1590589028670415904
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6305,6 +6313,13 @@ MonoBehaviour:
   DeathForce: 10
   ModuleAnchor: {fileID: 0}
   ChildModules: []
+  DeathSound: {fileID: 0}
+  HitSound: {fileID: 0}
+  LootTable:
+  - {fileID: 8502846639145661120, guid: 3378bcbeadd01d04e9baaf77c88ff1af, type: 3}
+  - {fileID: 1634078198350810188, guid: d6b355686da2087439d7e976e5737af5, type: 3}
+  - {fileID: 3452723128775455434, guid: 085d16572cf4f684c912ad95cf58af7f, type: 3}
+  - {fileID: 3452723128775455434, guid: 085d16572cf4f684c912ad95cf58af7f, type: 3}
 --- !u!114 &1590589028670415907
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6323,6 +6338,19 @@ MonoBehaviour:
   HoverRange: 10
   acceleration: 0.5
   maxSpeed: 2
+--- !u!65 &7315301323266463777
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1590589028670415906}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 0
+  serializedVersion: 2
+  m_Size: {x: 0.6, y: 0.6, z: 0.6}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1590589028737367137
 GameObject:
   m_ObjectHideFlags: 0
@@ -6500,6 +6528,8 @@ MonoBehaviour:
   Rigidbody: {fileID: 1590589028902910832}
   CaptureCollider: {fileID: 1590589028902910833}
   PhysicsCollider: {fileID: 1590589028902910837}
+  HitSound: {fileID: 8300000, guid: a7a1f90e2434c4d488331bf0e4910f1a, type: 3}
+  DeathSound: {fileID: 8300000, guid: 7982a34dc47821c4fbdc6b2d9a10f02b, type: 3}
 --- !u!114 &1590589028902910834
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6520,7 +6550,7 @@ MonoBehaviour:
   bulletType: {fileID: 8407026241064787674, guid: 2354f4900f10fe74c8d16ade39a711d7,
     type: 3}
   bulletSpawnPoint: {fileID: 1590589029016299993}
-  WeaponSound: {fileID: 8300000, guid: e1a6bba5a984616489b2c973db5293f7, type: 3}
+  audioSource: {fileID: 0}
   currentTarget: {fileID: 0}
   myShip: {fileID: 0}
 --- !u!136 &1590589028902910837
@@ -6641,6 +6671,8 @@ MonoBehaviour:
   Rigidbody: {fileID: 1590589029251989748}
   CaptureCollider: {fileID: 1590589029346621635}
   PhysicsCollider: {fileID: 1590589029251989753}
+  HitSound: {fileID: 8300000, guid: a7a1f90e2434c4d488331bf0e4910f1a, type: 3}
+  DeathSound: {fileID: 8300000, guid: 7982a34dc47821c4fbdc6b2d9a10f02b, type: 3}
 --- !u!114 &1590589029251989750
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6658,6 +6690,7 @@ MonoBehaviour:
   damageAmount: 1
   EmitterBase: {fileID: 1590589029251989751}
   ShieldModel: {fileID: 1590589027337043579}
+  ShieldHit: {fileID: 0}
 --- !u!135 &1590589029251989753
 SphereCollider:
   m_ObjectHideFlags: 0

@@ -82,6 +82,13 @@ public class Matter : MonoBehaviour
 		CaptureCollider.isTrigger = false;
 		PhysicsCollider.enabled = false;
 
+		Weapon[] weapons = GetComponentsInChildren<Weapon>();
+		foreach (Weapon weapon in weapons)
+		{
+			weapon.UpdateShip();
+		}
+
+
 		ParentKatamari = null;
 	}
 
@@ -199,6 +206,7 @@ public class Matter : MonoBehaviour
 			if (destroy && this.gameObject != null)
 			{
 				Destroy(this.gameObject);
+				MapBounds.Instance.RemoveMatterFromSpawnList(this);
 			}
 
 			

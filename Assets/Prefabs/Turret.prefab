@@ -273,7 +273,7 @@ MonoBehaviour:
   range: 50
   cooldown: 1
   acquisitionInterval: 1
-  rotationSpeed: 90
+  rotationSpeed: 120
   TurretHead: {fileID: 7472215282823741196}
   bulletType: {fileID: 8407026241064787674, guid: 2354f4900f10fe74c8d16ade39a711d7,
     type: 3}

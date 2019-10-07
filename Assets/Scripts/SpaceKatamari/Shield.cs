@@ -11,6 +11,8 @@ public class Shield : MonoBehaviour
 	public Matter EmitterBase;
 	public GameObject ShieldModel;
 
+	public AudioClip ShieldHit;
+
 	// Start is called before the first frame update
 	void Start()
 	{
@@ -59,7 +61,9 @@ public class Shield : MonoBehaviour
         if (bullet.gameObject.GetComponent<Bullet>() != null && bullet.gameObject.GetComponent<Bullet>().myTeam != ship.currentTeam)
 		{
 			Destroy(bullet.gameObject);
-			size -= bullet.Damage;
+			size -= bullet.Damage * damageAmount;
+
+			AudioManager.Instance.PlayClip(ShieldHit);
 		}
 	}
 }

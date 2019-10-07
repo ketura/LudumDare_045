@@ -90,7 +90,7 @@ public class GameController : Singleton<GameController>
 			ClearText();
 			return;
 		}
-		ShowText("WASD to move. Move into things to grow. Q/E to rotate your cluster. \nHold left-click to create a gravity well.  Right-click to reverse the direction of an existing gravity well.  \nH for this help message.\n\n Backspace to fade back out of reality.  SPAM SPACE TO EXIST.", 30.0f);
+		ShowText("WASD to move. Move into things to grow. Q/E to rotate your cluster. \nHold left-click to create a gravity well.  \nH for this help message.\n\n Backspace to fade back out of reality.  SPAM SPACE TO EXIST.", 30.0f);
 		helping = true;
 	}
 

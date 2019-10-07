@@ -1983,7 +1983,7 @@ PrefabInstance:
     - target: {fileID: 9118669166608968915, guid: 0166d86294be3354b93859a39be0da11,
         type: 3}
       propertyPath: MaxObjectsPerBand
-      value: 30
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 9118669166608968915, guid: 0166d86294be3354b93859a39be0da11,
         type: 3}
@@ -2016,7 +2016,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1786433721, guid: 0166d86294be3354b93859a39be0da11, type: 3}
       propertyPath: Bands.Array.data[0].Entities.Array.size
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 1786433721, guid: 0166d86294be3354b93859a39be0da11, type: 3}
       propertyPath: Player
@@ -2098,11 +2098,11 @@ PrefabInstance:
     - target: {fileID: 1786433721, guid: 0166d86294be3354b93859a39be0da11, type: 3}
       propertyPath: Bands.Array.data[3].Entities.Array.data[3].PrefabToSpawn
       value: 
-      objectReference: {fileID: 7816322252850586757, guid: a6f4875a712c82b4cb05fd73778ea182,
+      objectReference: {fileID: 1590589028670415906, guid: c03791dbc3dbbd7498c1920b5eacdab5,
         type: 3}
     - target: {fileID: 1786433721, guid: 0166d86294be3354b93859a39be0da11, type: 3}
       propertyPath: Bands.Array.data[3].Entities.Array.data[3].SpawnChance
-      value: 0.001
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1786433721, guid: 0166d86294be3354b93859a39be0da11, type: 3}
       propertyPath: Bands.Array.data[3].Entities.Array.data[4].PrefabToSpawn
@@ -2125,7 +2125,7 @@ PrefabInstance:
     - target: {fileID: 1786433721, guid: 0166d86294be3354b93859a39be0da11, type: 3}
       propertyPath: Bands.Array.data[2].Entities.Array.data[2].PrefabToSpawn
       value: 
-      objectReference: {fileID: 4236358528600509906, guid: 77e20f8a0f900f64da02dece763e53e7,
+      objectReference: {fileID: 1590589028670415906, guid: c03791dbc3dbbd7498c1920b5eacdab5,
         type: 3}
     - target: {fileID: 1786433721, guid: 0166d86294be3354b93859a39be0da11, type: 3}
       propertyPath: Bands.Array.data[2].Entities.Array.data[2].SpawnChance
@@ -2170,7 +2170,7 @@ PrefabInstance:
     - target: {fileID: 1786433721, guid: 0166d86294be3354b93859a39be0da11, type: 3}
       propertyPath: Bands.Array.data[1].Entities.Array.data[4].PrefabToSpawn
       value: 
-      objectReference: {fileID: 4236358528600509906, guid: ea28263f84ee0f747a9e8abf8d33ffdc,
+      objectReference: {fileID: 7816322252850586757, guid: 9f8a539641db1f844861dc1f807238b7,
         type: 3}
     - target: {fileID: 1786433721, guid: 0166d86294be3354b93859a39be0da11, type: 3}
       propertyPath: Bands.Array.data[1].Entities.Array.data[4].SpawnChance
@@ -2264,6 +2264,19 @@ PrefabInstance:
     - target: {fileID: 1786433721, guid: 0166d86294be3354b93859a39be0da11, type: 3}
       propertyPath: Bands.Array.data[1].Entities.Array.data[7].SpawnChance
       value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 1786433721, guid: 0166d86294be3354b93859a39be0da11, type: 3}
+      propertyPath: SpawnInterval
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1786433721, guid: 0166d86294be3354b93859a39be0da11, type: 3}
+      propertyPath: Bands.Array.data[0].Entities.Array.data[6].PrefabToSpawn
+      value: 
+      objectReference: {fileID: 7816322252850586757, guid: b27e4ad549f61fd4d90745c23f7fe72a,
+        type: 3}
+    - target: {fileID: 1786433721, guid: 0166d86294be3354b93859a39be0da11, type: 3}
+      propertyPath: Bands.Array.data[0].Entities.Array.data[6].SpawnChance
+      value: 0.01
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0166d86294be3354b93859a39be0da11, type: 3}
@@ -2536,6 +2549,21 @@ PrefabInstance:
         type: 3}
       propertyPath: RotateSpeed
       value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 8120971762238475322, guid: 4c096915c404aba4ba442e8044ace64c,
+        type: 3}
+      propertyPath: GravityStrength
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 8120971762238475322, guid: 4c096915c404aba4ba442e8044ace64c,
+        type: 3}
+      propertyPath: TractorStrength
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 8120971762238475322, guid: 4c096915c404aba4ba442e8044ace64c,
+        type: 3}
+      propertyPath: Range
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 2264000375430084412, guid: 4c096915c404aba4ba442e8044ace64c,
         type: 3}

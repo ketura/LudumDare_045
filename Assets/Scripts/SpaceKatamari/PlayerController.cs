@@ -43,11 +43,11 @@ public class PlayerController : MonoBehaviour
 		{
 			movement *= DeadMovementSpeed * Time.deltaTime;
 		}
-		Debug.Log($"Adding {movement} to velocity");
+		//Debug.Log($"Adding {movement} to velocity");
 
 		Player.MasterRigidbody.velocity += movement;
 
-		Debug.Log($"Velocity is now {Player.MasterRigidbody.velocity}.");
+		//Debug.Log($"Velocity is now {Player.MasterRigidbody.velocity}.");
 
 		var overshot = Vector3.Distance(Player.transform.position, Map.transform.position);
 		if (overshot > Map.WorldRadius)

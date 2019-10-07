@@ -49,4 +49,19 @@ public class MapBounds : Singleton<MapBounds>
 		var go = GameObject.Instantiate(prefab, pos, Quaternion.identity);
 		SpawnedObjects[band].Add(go.GetComponent<Matter>());
 	}
+
+	public void RemoveMatterFromSpawnList(Matter matter)
+	{
+		if (matter == null)
+			return;
+
+		foreach(var pair in SpawnedObjects)
+		{
+			if(pair.Value.Contains(matter))
+			{
+				pair.Value.Remove(matter);
+				return;
+			}
+		}
+	}
 }

@@ -89,10 +89,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxSize: 10
-  regen: 0.5
+  regen: 5
   damageAmount: 1
   EmitterBase: {fileID: 8502846639145661150}
   ShieldModel: {fileID: 8547616258764063044}
+  ShieldHit: {fileID: 0}
 --- !u!135 &4989383875292278548
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -164,7 +165,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 7d587add0d3736549879d9f10890237d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
