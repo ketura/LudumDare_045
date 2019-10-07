@@ -108,6 +108,8 @@ public class PlayerKatamari : MonoBehaviour
     private Rigidbody rigidBody;
     private Thruster[] thrusterList = new Thruster[0];
 
+    private float deadModelTargetScale = 1;
+
 
   // Start is called before the first frame update
   void Start()
@@ -165,6 +167,11 @@ public class PlayerKatamari : MonoBehaviour
             }
         }
 
+        if (CurrentState == PlayerState.Oblivion || CurrentState == PlayerState.Killed)
+        {
+            float scale = Mathf.Lerp(DeadModel.transform.localScale.x, deadModelTargetScale, 2*Time.deltaTime);
+            DeadModel.transform.localScale = new Vector3(scale, scale, scale);
+        }
   }
 
 	public void OnMatterTouch(Matter otherMatter, Matter hitter)
@@ -309,6 +316,8 @@ public class PlayerKatamari : MonoBehaviour
 				Well.enabled = false;
 				ExistingModel.SetActive(false);
 				DeadModel.SetActive(true);
+                DeadModel.transform.localScale = new Vector3(1, 1, 1);
+                deadModelTargetScale = 1;
 				Ship.currentTeam = Ship.Team.Neutral;					
 				Ship.enabled = false;
 				GetComponent<SphereCollider>().enabled = false;
@@ -341,6 +350,9 @@ public class PlayerKatamari : MonoBehaviour
 	public void SpamExist()
 	{
 		SpamCount++;
+
+        deadModelTargetScale = Mathf.Lerp(1, 2, (float) SpamCount / SpamRequiredToExist);
+        DeadModel.transform.localScale += new Vector3(0.25f, 0.25f, 0.25f);
 
         try
         {
