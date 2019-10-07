@@ -26,6 +26,7 @@ public class PlanetChunk : Matter
 		if(Active)
 		{
 			base.OnTriggerEnter(other);
+			return;
 		}
 
 		PlayerKatamari player = other.GetComponentInParent<PlayerKatamari>();

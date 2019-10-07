@@ -18,6 +18,9 @@ public struct LossMessage
 
 public class GameController : Singleton<GameController>
 {
+	[Range(0.0f, 1.0f)]
+	public float Volume;
+
 	public Image Background;
 	private CanvasGroup BackgroundPanel;
 	public TMP_Text Text;
@@ -34,11 +37,15 @@ public class GameController : Singleton<GameController>
 		BackgroundPanel = Background.GetComponent<CanvasGroup>();
 		Background.CrossFadeAlpha(0, 0, true);
 		Text.CrossFadeAlpha(0, 0, true);
+
+		AudioListener.volume = Volume;
 	}
 
   // Update is called once per frame
   void Update()
   {
+		AudioListener.volume = Volume;
+
 		if (!Displaying)
 			return;
 

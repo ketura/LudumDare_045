@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
+  m_IndirectSpecularColor: {r: 0.3731193, g: 0.38073996, b: 0.35872698, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1168,6 +1168,11 @@ PrefabInstance:
         type: 3}
       propertyPath: LossMessages.Array.data[4].Message
       value: Perhaps this is a chance to consider another wSPAM SPACE TO EXIST.
+      objectReference: {fileID: 0}
+    - target: {fileID: 8568660095791371901, guid: f40e355314afd1649ae37676a548bd8b,
+        type: 3}
+      propertyPath: Volume
+      value: 0.3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f40e355314afd1649ae37676a548bd8b, type: 3}
