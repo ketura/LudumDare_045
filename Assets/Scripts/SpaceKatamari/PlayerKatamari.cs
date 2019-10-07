@@ -311,8 +311,10 @@ public class PlayerKatamari : MonoBehaviour
 
 				SpamCount = 0;
 				Matter.Mass = StartingHealth;
+                MasterRigidbody.velocity = Vector3.zero;
+                MasterRigidbody.angularVelocity = Vector3.zero;
 
-				Well.enabled = true;
+                Well.enabled = true;
 				ExistingModel.SetActive(true);
 				DeadModel.SetActive(false);
 				Ship.currentTeam = Ship.Team.Player;

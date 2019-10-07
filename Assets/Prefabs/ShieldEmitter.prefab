@@ -90,7 +90,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxSize: 10
   regen: 5
-  damageAmount: 1
+  damageAmount: 1.5
   EmitterBase: {fileID: 8502846639145661150}
   ShieldModel: {fileID: 8547616258764063044}
   ShieldHit: {fileID: 0}
