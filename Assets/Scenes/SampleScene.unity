@@ -2129,7 +2129,7 @@ PrefabInstance:
         type: 3}
     - target: {fileID: 1786433721, guid: 0166d86294be3354b93859a39be0da11, type: 3}
       propertyPath: Bands.Array.data[2].Entities.Array.data[2].SpawnChance
-      value: 10
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1786433721, guid: 0166d86294be3354b93859a39be0da11, type: 3}
       propertyPath: Bands.Array.data[2].Entities.Array.data[3].PrefabToSpawn

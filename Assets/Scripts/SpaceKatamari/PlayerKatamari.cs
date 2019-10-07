@@ -105,6 +105,8 @@ public class PlayerKatamari : MonoBehaviour
 
 	public float MomentumCap = 500.0f;
 
+    public float MaxAngularVelocity = 10f;
+
 	public Vector3 VelocityReadout;
 	public Vector3 AngularVelocityReadout;
 
@@ -146,6 +148,7 @@ public class PlayerKatamari : MonoBehaviour
 		GetComponent<Matter>().enabled = false;
 
         rigidBody = GetComponent<Rigidbody>();
+        rigidBody.maxAngularVelocity = MaxAngularVelocity;
 
         PlanetChunk planetChunk = FindObjectOfType<PlanetChunk>();
         if (planetChunk != null)
@@ -184,6 +187,7 @@ public class PlayerKatamari : MonoBehaviour
         }
 
 		transform.position = new Vector3(transform.position.x, 1.5f, transform.position.z);
+        rigidBody.angularVelocity = new Vector3(0, rigidBody.angularVelocity.y, 0);
   }
 
 	public void OnMatterTouch(Matter otherMatter, Matter hitter)
