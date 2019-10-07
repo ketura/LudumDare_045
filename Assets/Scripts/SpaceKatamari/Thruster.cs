@@ -8,15 +8,15 @@ public class Thruster : MonoBehaviour
     public float NozzleRotationSpeed = 360f;
     public float SpeedIncrease=0.1f;
     public GameObject NozzleRotationBase;
-    public ParticleSystem exaustParticleSystem;
+    public ParticleSystem exhaustParticleSystem;
 
     private Quaternion targetNozzleRotation;
-    private ParticleSystem.MainModule exaustParticleSystemMainModule;
+    private ParticleSystem.MainModule exhaustParticleSystemMainModule;
 
     // Start is called before the first frame update
     void Start()
     {
-        exaustParticleSystemMainModule = exaustParticleSystem.main;
+        exhaustParticleSystemMainModule = exhaustParticleSystem.main;
     }
 
     // Update is called once per frame
@@ -33,28 +33,32 @@ public class Thruster : MonoBehaviour
         targetNozzleRotation = rotation;
     }
 
-    public void SetExaustSpeed(float exaustSpeed)
-    {
-        if (exaustSpeed > 0)
-        {
-            TurnParticlesOn();
-            exaustParticleSystemMainModule.startSpeed = exaustSpeed * 2;
-        }
-        else
-        {
-            TurnParticlesOff();
-        }
-    }
+	public void SetExaustSpeed(float exaustSpeed)
+	{
+		if (exaustSpeed > 0)
+		{
+			TurnParticlesOn();
+			if(exhaustParticleSystem != null)
+			{
+				exhaustParticleSystemMainModule.startSpeed = exaustSpeed * 2;
+			}
+           
+		}
+		else
+		{
+			TurnParticlesOff();
+		}
+	}
 
     public void TurnParticlesOn()
     {
-        if (!exaustParticleSystem.isPlaying)
-            exaustParticleSystem.Play();
+        if (exhaustParticleSystem != null && !exhaustParticleSystem.isPlaying)
+            exhaustParticleSystem.Play();
     }
 
     public void TurnParticlesOff()
     {
-        if (!exaustParticleSystem.isStopped)
-            exaustParticleSystem.Stop();
+        if (exhaustParticleSystem != null && !exhaustParticleSystem.isStopped)
+            exhaustParticleSystem.Stop();
     }
 }

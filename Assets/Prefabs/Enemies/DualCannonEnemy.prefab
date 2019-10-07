@@ -6285,7 +6285,7 @@ MonoBehaviour:
   NozzleRotationSpeed: 360
   SpeedIncrease: 0.1
   NozzleRotationBase: {fileID: 8528446309617382336}
-  exaustParticleSystem: {fileID: 6326294267046744200}
+  exhaustParticleSystem: {fileID: 6326294267046744200}
 --- !u!136 &8246003666753981482
 CapsuleCollider:
   m_ObjectHideFlags: 0

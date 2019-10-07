@@ -646,6 +646,7 @@ MonoBehaviour:
   Active: 1
   Invincible: 0
   ExplosionMultiplier: 1
+  MomentumDamageMultiplier: 0.05
   Rigidbody: {fileID: 0}
   CaptureCollider: {fileID: 303025537702600279}
   PhysicsCollider: {fileID: 1800995379}
@@ -663,8 +664,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Power: 0.5
   NozzleRotationSpeed: 360
+  SpeedIncrease: 0.1
   NozzleRotationBase: {fileID: 303025535688490457}
-  exaustParticleSystem: {fileID: 2712349753932308113}
+  exhaustParticleSystem: {fileID: 2712349753932308113}
 --- !u!136 &1800995379
 CapsuleCollider:
   m_ObjectHideFlags: 0

@@ -18,8 +18,9 @@ public class GameController : Singleton<GameController>
 	
   }
 
-	public void ShowText(string text)
+	public void ShowText(string text, int duration)
 	{
+		Debug.Log(text);
 		//display text box with appropriate text
 	}
 
