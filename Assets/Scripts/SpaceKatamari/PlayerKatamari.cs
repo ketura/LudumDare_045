@@ -199,6 +199,18 @@ public class PlayerKatamari : MonoBehaviour
 			MasterRigidbody.mass = 1;
 		}
 
+        if (MasterRigidbody.mass >= 100)
+        {
+            try
+            {
+                MusicManager.Instance.PlayIntenseMusic();
+            }
+            catch
+            {
+                Debug.LogError("Music manager not found!");
+            }
+        }
+
 		CapturedObjects.Add(otherMatter);
 		var well = otherMatter.gameObject.AddComponent<GravityWell>();
 		well.Range = ChildGravitySize;
