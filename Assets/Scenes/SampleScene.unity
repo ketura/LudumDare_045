@@ -1357,6 +1357,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3452723128775455432, guid: 085d16572cf4f684c912ad95cf58af7f,
+        type: 3}
+      propertyPath: m_UseGravity
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 085d16572cf4f684c912ad95cf58af7f, type: 3}
 --- !u!1 &1435366458
@@ -2102,7 +2107,7 @@ PrefabInstance:
         type: 3}
     - target: {fileID: 1786433721, guid: 0166d86294be3354b93859a39be0da11, type: 3}
       propertyPath: Bands.Array.data[3].Entities.Array.data[3].SpawnChance
-      value: 1
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 1786433721, guid: 0166d86294be3354b93859a39be0da11, type: 3}
       propertyPath: Bands.Array.data[3].Entities.Array.data[4].PrefabToSpawn
@@ -2129,7 +2134,7 @@ PrefabInstance:
         type: 3}
     - target: {fileID: 1786433721, guid: 0166d86294be3354b93859a39be0da11, type: 3}
       propertyPath: Bands.Array.data[2].Entities.Array.data[2].SpawnChance
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1786433721, guid: 0166d86294be3354b93859a39be0da11, type: 3}
       propertyPath: Bands.Array.data[2].Entities.Array.data[3].PrefabToSpawn
