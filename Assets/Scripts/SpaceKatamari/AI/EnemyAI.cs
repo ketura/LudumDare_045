@@ -53,6 +53,7 @@ public class EnemyAI : MonoBehaviour
                         foreach (Thruster thruster in thrusters)
                         {
                             thruster.SetExaustSpeed(rigidBody.velocity.magnitude);
+                            thruster.SetNozzleRotation(thrusterRotation);
                         }
                     }
                     else

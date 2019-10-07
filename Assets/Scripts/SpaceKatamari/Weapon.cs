@@ -7,10 +7,11 @@ public class Weapon : MonoBehaviour
     public float range = 50f;
     public float cooldown = 1f;
     public float acquisitionInterval = 1f;
-    public float rotationSpeed = 15f;
+    public float rotationSpeed = 90f;
     public GameObject TurretHead;
     public GameObject bulletType;
     public GameObject bulletSpawnPoint;
+    public AudioClip WeaponSound;
 
     private float cooldownTimer = 0f;
     private float targetAcquisitionTimer = 0f;
@@ -115,5 +116,8 @@ public class Weapon : MonoBehaviour
         {
             bulletComponent.myTeam = myShip.currentTeam;
         }
+        
+        if (WeaponSound != null)
+            AudioManager.Instance.PlayClip(WeaponSound);
     }
 }

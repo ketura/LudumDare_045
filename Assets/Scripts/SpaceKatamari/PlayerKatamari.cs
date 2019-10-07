@@ -264,6 +264,8 @@ public class PlayerKatamari : MonoBehaviour
 				GetComponent<SphereCollider>().enabled = false;
 				GetComponent<Matter>().enabled = false;
 
+                MusicManager.Instance.StopMusic();
+
 				break;
 		}
 	}
@@ -282,9 +284,11 @@ public class PlayerKatamari : MonoBehaviour
 	public void SpamExist()
 	{
 		SpamCount++;
+        MusicManager.Instance.PlayGrowthMusic();
 		if (CurrentState != PlayerState.Existing && SpamCount >= SpamRequiredToExist)
 		{
 			ChangeState(PlayerState.Existing);
+            MusicManager.Instance.PlayChillMusic();
 		}
 	}
 
